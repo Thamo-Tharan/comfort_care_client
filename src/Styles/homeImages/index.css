@@ -1,0 +1,38 @@
+.home-image-auto img{
+    width: 100%;
+    aspect-ratio: 3 / 2;
+    object-fit: contain;
+    mix-blend-mode: color-burn;
+}
+.home-image-auto{
+    display: grid;
+    grid-template-columns: auto auto;
+    align-items: center;
+}
+#text_head{
+    width: 70%;
+    position: relative;
+    left: 50px;
+}
+.bold-headed{
+    font-size: 23px;
+    font-weight: bold;
+}
+#description{
+    font-size: 17px;
+}
+#noraml_text_price{
+    font-size: 20px;
+}
+.home-image-auto button{
+    background-color: darkorange;;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    padding: 10px 24px;
+}

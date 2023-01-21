@@ -1,0 +1,40 @@
+ol{
+    list-style: none;
+    display: flex;
+    justify-content: space-evenly;
+    font-size: 18px;
+    color: white;
+}
+ol li:hover{
+cursor: pointer;
+color: darkorange;
+}
+header{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    align-items: baseline;
+    
+}
+#header_root{
+    background-color:black;
+    box-shadow: 0 2px 5px rgb(0 0 0 / 20%);
+    position: sticky;
+    width: 100%;
+    left: 0;
+    top: 0;
+    height: 75px;
+    z-index: 99;
+}
+#companyname_div{
+    font-size: 24px;
+    letter-spacing: 1px;
+    color: white;
+}
+#icons_list ol{
+    justify-content: center;
+    gap: 30px;
+}
+#icons_list{
+    position: relative;
+    top: 8px;
+}
