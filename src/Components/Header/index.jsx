@@ -5,7 +5,7 @@ export const Header = () => {
       <div id="header_root">
         <header>
           <div id="companyname_div">
-            <p>Sai Furniture</p>
+            <p>Comfort and Care</p>
           </div>
           <div id="menu_items">
             <ol>
