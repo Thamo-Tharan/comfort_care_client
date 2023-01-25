@@ -1,0 +1,53 @@
+.span-class-register,.span-class-signin{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.span-class-register input,.span-class-signin input{
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid;
+    width: 100%;
+}
+.modal-header{
+    background: brown;;
+    color: white;
+}
+.modal-header span:hover{
+    cursor: pointer;
+}
+.modal-footer{
+    flex-direction: column;
+}
+#registerspan,#signinspan{
+    display: flex;
+    gap: 6px;
+}
+#registerspan span , #signinspan span{
+    text-decoration: underline;
+    color: blue;
+    cursor: pointer;
+}
+.modal-footer button{
+    background-color: darkorange;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    padding: 10px 24px;
+}
+.modal-footer button:hover{
+    background-color: darkorange !important;
+}
+.btn:disabled{
+    background: bisque !important;
+    cursor: no-drop;
+}
+.error-class{
+    color: red;
+    margin: 0px;
+}

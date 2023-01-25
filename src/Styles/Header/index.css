@@ -15,6 +15,10 @@ header{
     align-items: baseline;
     
 }
+header div{
+    position: relative;
+    top: 16px;
+}
 #header_root{
     background-color:black;
     box-shadow: 0 2px 5px rgb(0 0 0 / 20%);
@@ -36,5 +40,5 @@ header{
 }
 #icons_list{
     position: relative;
-    top: 8px;
+    top: 22px;
 }

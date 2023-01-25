@@ -1,5 +1,8 @@
+import { useState } from "react";
 import "../../Styles/Header/index.css";
+import { Signupcom } from "../singnup";
 export const Header = () => {
+  const [loginshow,setloginshow]=useState(false)
   return (
     <>
       <div id="header_root">
@@ -23,13 +26,14 @@ export const Header = () => {
               <li>
                 <span className="material-symbols-outlined">shopping_cart</span>
               </li>
-              <li>
+              <li onClick={()=>setloginshow(true)}>
                 <span className="material-symbols-outlined">person</span>
               </li>
             </ol>
           </div>
         </header>
       </div>
+      <Signupcom showpop={loginshow} setshowpop={setloginshow}/>
     </>
   );
 };
