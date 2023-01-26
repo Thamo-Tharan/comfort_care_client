@@ -11,3 +11,7 @@ export const passwordvalidation = (val) => {
   const passwordregex = val.length >= 8;
   return passwordregex;
 };
+export const mobilenumbervalidation = (val) => {
+  const passwordregex = val.length === 10;
+  return passwordregex;
+};
