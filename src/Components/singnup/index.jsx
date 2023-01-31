@@ -40,6 +40,13 @@ export const Signupcom = (props) => {
     }
     return count === 5;
   };
+  //common fun to set empty value for inputs
+  const emptyinputfun = () => {
+    const parentnodes = document.querySelector(".register div").childNodes;
+    for (let index = 0; index < parentnodes.length; index++) {
+      parentnodes[index].querySelector("input").value = "";
+    }
+  };
   const validatefun = (e) => {
     //for taking the input parent elements interation
     const parentelement =
@@ -244,6 +251,10 @@ export const Signupcom = (props) => {
       setbutondisabled(true);
     }
   };
+  const signinfun = () => {
+    localStorage.setItem("userinfo", inputvalues("username"));
+    setshowpop(!showpop);
+  };
   return (
     <>
       <Modal show={showpop}>
@@ -352,12 +363,18 @@ export const Signupcom = (props) => {
                   onClick={() => {
                     setmode("signup");
                     setsigninerror({ username: "", password: "" });
+                    setbutondisabled(true);
+                    emptyinputfun();
                   }}
                 >
                   click here
                 </span>
               </div>
-              <Button variant="primary" disabled={buttondisabled}>
+              <Button
+                variant="primary"
+                disabled={buttondisabled}
+                onClick={signinfun}
+              >
                 Signin
               </Button>
             </>
@@ -365,7 +382,22 @@ export const Signupcom = (props) => {
             <>
               <div id="registerspan">
                 <p>Already have account</p>
-                <span onClick={() => setmode("signin")}>click here</span>
+                <span
+                  onClick={() => {
+                    setmode("signin");
+                    setbutondisabled(true);
+                    setsignuperror({
+                      username: "",
+                      email: "",
+                      mobile: "",
+                      password: "",
+                      repeatpaswd: "",
+                    });
+                    emptyinputfun();
+                  }}
+                >
+                  click here
+                </span>
               </div>
               <Button variant="primary" disabled={buttondisabled}>
                 Signup

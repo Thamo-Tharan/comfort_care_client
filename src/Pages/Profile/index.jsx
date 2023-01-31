@@ -1,22 +1,19 @@
 import { Header } from "../../Components/Header";
-import { Homeimage } from "../../Components/homeImages";
-import { Sofacomp } from "../../Components/sofaComponent";
-
-export const Home = () => {
+import { Profilelayout } from "../../Components/Profile/layout";
+export const Profile = () => {
   const selectedColor = {
-    Home: "active",
+    Home: "",
     Menu: "",
     About: "",
     Contact: "",
     whistlist: "",
     cart: "",
-    profile: "",
+    profile: "active",
   };
   return (
     <>
       <Header selectedColor={selectedColor} />
-      <Homeimage />
-      <Sofacomp />
+      <Profilelayout />
     </>
   );
 };

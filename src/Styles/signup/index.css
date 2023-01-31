@@ -4,9 +4,9 @@
     gap: 20px;
 }
 .span-class-register input,.span-class-signin input{
-    padding: 5px;
+    padding: 10px 16px 10px;
     border-radius: 5px;
-    border: 1px solid;
+    border: 1px solid lightgrey;
     width: 100%;
 }
 .modal-header{

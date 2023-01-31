@@ -1,0 +1,272 @@
+#profile_div {
+  height: 90px;
+  width: 90px;
+  background-color: darkorange;
+  border-radius: 50%;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  position: relative;
+  right: 0;
+  left: calc(64% - 100px);
+}
+#profile_info_div ol {
+  color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  padding: 0px;
+  gap: 50px;
+}
+#profilelayout_parent {
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+  align-items: flex-start;
+  padding: 25px;
+  background: aliceblue;
+}
+#profile_info_div ol li {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+#profilelayout {
+  display: grid;
+  grid-template-columns: 20% 80%;
+  height: 100vh;
+}
+#username_edit {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  font-size: 18px;
+}
+#prof_info_root {
+  text-align: left;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+#username_edit div {
+  display: flex;
+  gap: 25px;
+}
+.radio-values {
+  display: flex;
+  gap: 10px;
+}
+#profile_head p {
+  font-size: 19px;
+  font-weight: bold;
+}
+#profile_head {
+  display: flex;
+  align-items: baseline;
+  gap: 20px;
+}
+#profile_head span {
+  font-size: 17px;
+  color: blue;
+  text-decoration: underline;
+  cursor: pointer;
+}
+#username_edit input {
+  width: 45%;
+  padding: 15px 16px 13px;
+}
+#save_cancel_div {
+  display: flex;
+  justify-content: flex-start;
+  gap: 20px;
+}
+#profile_save {
+  background-color: darkorange;
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  padding: 10px 24px;
+}
+#profile_cancel {
+  background-color: gray;
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  padding: 10px 24px;
+}
+.event-disable {
+  pointer-events: none;
+  opacity: 0.7;
+}
+#profile_content {
+  box-shadow: rgb(50 50 93 / 25%) 0px 50px 100px -20px,
+    rgb(0 0 0 / 30%) 0px 30px 60px -30px;
+}
+.active {
+  color: darkorange;
+}
+#add_address_div {
+  background-color: brown;
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  margin: 4px 2px;
+  display: flex;
+  border-radius: 3px;
+  width: 20%;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 24px;
+  justify-content: center;
+  cursor: pointer;
+}
+#add_address_div p {
+  margin: 0;
+}
+#address_root {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+#add_heading {
+  display: flex;
+  justify-content: space-between;
+}
+#name_heading {
+  display: flex;
+  gap: 30px;
+}
+#add_value {
+  display: flex;
+  gap: 5px;
+}
+#add_type p {
+  text-transform: uppercase;
+  font-size: 11px;
+  color: black;
+  vertical-align: middle;
+  padding: 4px 7px;
+  border-radius: 2px;
+  background-color: lightgray;
+  font-weight: 500;
+}
+#edit_type p {
+  cursor: pointer;
+  color: blue;
+  text-decoration: underline;
+}
+#edit_type p:nth-child(even){
+  color: red;
+}
+#name_heading p {
+  font-weight: bold;
+}
+#pincode {
+  font-weight: bold;
+}
+#myaddrees {
+  padding: 15px;
+  box-shadow: rgb(0 0 0 / 24%) 0px 3px 8px;
+}
+#newadd_inupt {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background-color: #f5faff;
+  padding: 20px;
+  box-shadow: rgb(0 0 0 / 24%) 0px 3px 8px;
+}
+#first_div {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-row-gap: 25px;
+  grid-gap: 20px;
+}
+#first_div input,
+#first_div textarea {
+  width: 100%;
+  font-size: 14px;
+  border: 1px solid lightgrey;
+  outline: none;
+  border-radius: 2px;
+  padding: 15px 16px 13px;
+  box-shadow: none;
+}
+#state_div {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-row-gap: 25px;
+  grid-gap: 20px;
+}
+#state_div input {
+  width: 100%;
+  font-size: 14px;
+  border: 1px solid lightgrey;
+  outline: none;
+  border-radius: 2px;
+  padding: 15px 16px 13px;
+  box-shadow: none;
+}
+#city > div,
+#state > div,
+#country > div {
+  padding: 7px 10px 7px;
+}
+#add_address_save {
+  display: flex;
+  gap: 20px;
+}
+#save {
+  background-color: darkorange;
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  padding: 10px 24px;
+}
+#cancel {
+  background-color: gray;
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  padding: 10px 24px;
+}
+#first_div div,
+#add_type div,
+#type_address,
+#state_div div {
+  text-align: left;
+}
+#first_div div span,
+#add_type div span,
+#type_address span,
+#state_div div .text-red-400 {
+  color: red;
+  font-size: small;
+  padding: 5px;
+}
+#edit_type {
+  display: flex;
+  gap: 25px;
+}

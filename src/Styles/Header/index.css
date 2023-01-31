@@ -1,44 +1,57 @@
-ol{
-    list-style: none;
-    display: flex;
-    justify-content: space-evenly;
-    font-size: 18px;
-    color: white;
+ol {
+  list-style: none;
+  display: flex;
+  justify-content: space-evenly;
+  font-size: 18px;
+  color: white;
 }
-ol li:hover{
-cursor: pointer;
-color: darkorange;
+ol li:hover {
+  cursor: pointer;
+  color: darkorange;
 }
-header{
-    display: grid;
-    grid-template-columns: auto auto auto;
-    align-items: baseline;
-    
+header {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  align-items: baseline;
 }
-header div{
-    position: relative;
-    top: 16px;
+header div {
+  position: relative;
+  top: 16px;
 }
-#header_root{
-    background-color:black;
-    box-shadow: 0 2px 5px rgb(0 0 0 / 20%);
-    position: sticky;
-    width: 100%;
-    left: 0;
-    top: 0;
-    height: 75px;
-    z-index: 99;
+#header_root {
+  background-color: black;
+  box-shadow: 0 2px 5px rgb(0 0 0 / 20%);
+  position: sticky;
+  width: 100%;
+  left: 0;
+  top: 0;
+  height: 75px;
+  z-index: 99;
 }
-#companyname_div{
-    font-size: 24px;
-    letter-spacing: 1px;
-    color: white;
+#companyname_div {
+  font-size: 24px;
+  letter-spacing: 1px;
+  color: white;
 }
-#icons_list ol{
-    justify-content: center;
-    gap: 30px;
+#icons_list ol {
+  justify-content: center;
+  gap: 30px;
 }
-#icons_list{
-    position: relative;
-    top: 22px;
+#icons_list {
+  position: relative;
+  top: 22px;
+}
+#signin_home {
+  background-color: darkorange;
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  position: relative;
+  bottom: 0;
+  top: -13px;
+  margin: 4px 2px;
+  padding: 10px 24px;
 }
