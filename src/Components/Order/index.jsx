@@ -4,9 +4,9 @@ import "react-step-progress/dist/index.css";
 import "../../Styles/Order/index.css";
 import { Orderaddress } from "./addressSelection";
 import { useSelector } from "react-redux";
-import { useEffect} from "react";
+import { useEffect } from "react";
 import { Ordersummary } from "./orderSummary";
-import { Headerorder } from "./Header";
+import { HeaderOrder } from "./Header";
 import { isEmpty } from "lodash";
 import { Loginconfirm } from "./loginConfirm";
 const getSelectors = (state) => state.userOrderinfo;
@@ -38,7 +38,7 @@ export const Order = () => {
   }
   return (
     <>
-      <Headerorder />
+      <HeaderOrder />
       <StepProgressBar
         startingStep={0}
         onSubmit={onFormSubmit}

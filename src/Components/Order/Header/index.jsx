@@ -1,20 +1,20 @@
 import { useState } from "react";
 import "../../../Styles/Header/index.css";
-import { Signupcom } from "../../singnup";
 import { isEmpty } from "lodash";
-export const Headerorder = () => {
-  const [loginshow, setloginshow] = useState(true);
+import { SignUp } from "../../signUp";
+export const HeaderOrder = () => {
+  const [loginShow, setLoginShow] = useState(true);
   const userinfo = localStorage.getItem("userinfo");
   return (
     <>
       <div id="header_root">
         <header>
-          <div id="companyname_div">
+          <div id="company_name_div">
             <p>Comfort and Care</p>
           </div>
         </header>
       </div>
-      {isEmpty(userinfo) ? <Signupcom showpop={loginshow} setshowpop={setloginshow} />:null}
+      {isEmpty(userinfo) ? <SignUp showPopup={loginShow} setShowPopup={setLoginShow} />:null}
       
     </>
   );

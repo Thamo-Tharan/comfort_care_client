@@ -6,9 +6,9 @@ export const Profile = () => {
     Menu: "",
     About: "",
     Contact: "",
-    whistlist: "",
-    cart: "",
-    profile: "active",
+    Wishlist: "",
+    Cart: "",
+    Profile: "active",
   };
   return (
     <>

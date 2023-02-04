@@ -3,7 +3,7 @@ import "../../Styles/sofaComponent/index.css";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import Image5 from "../../Images/home_image5.webp";
-export const Sofacomp = () => {
+export const SofaComp = () => {
   const responsive = {
     superLargeDesktop: {
       // the naming can be any, depends on you.
@@ -24,13 +24,13 @@ export const Sofacomp = () => {
     },
   };
   return (
-    <div id="sofaitems">
-      <div id="sofacom_root">
+    <div id="sofa_items">
+      <div id="sofa_com_root">
         <div id="sofa_text">
           <p>Sofa Collections</p>
         </div>
         <div id="sofa_button">
-          <button className="viewall">View all</button>
+          <button className="view_all">View all</button>
         </div>
       </div>
       <Carousel

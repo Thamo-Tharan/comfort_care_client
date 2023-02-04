@@ -1,4 +1,4 @@
-#sofacom_root{
+#sofa_com_root{
     display: flex;
     justify-content: space-between;
     align-items: baseline;
@@ -18,7 +18,7 @@
 #sofa_root p{
     font-size: 18px;
 }
-.viewall{
+.view_all{
     background-color: darkorange;
     border: none;
     color: white;
@@ -30,7 +30,7 @@
     cursor: pointer;
     padding: 10px 24px;
 }
-#sofaitems{
+#sofa_items{
     width: 98%;
     margin: auto;
 }

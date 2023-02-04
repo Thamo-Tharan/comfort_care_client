@@ -1,18 +1,18 @@
 import { useState } from "react";
 import "../../Styles/Header/index.css";
-import { Signupcom } from "../singnup";
 import { isEmpty } from "lodash";
 import { useNavigate } from "react-router-dom";
+import { SignUp } from "../signUp";
 export const Header = (props) => {
   const { selectedColor } = props;
   const navigate = useNavigate();
-  const [loginshow, setloginshow] = useState(false);
+  const [showLogin,setShowLogin] = useState(false);
   const userinfo = localStorage.getItem("userinfo");
   return (
     <>
       <div id="header_root">
         <header>
-          <div id="companyname_div">
+          <div id="company_name_div">
             <p>Comfort and Care</p>
           </div>
           <div id="menu_items">
@@ -27,15 +27,15 @@ export const Header = (props) => {
           </div>
           <div id="icons_list">
             <ol>
-              <li className={selectedColor.whistlist}>
+              <li className={selectedColor.Wishlist}>
                 <span className="material-symbols-outlined">favorite</span>
               </li>
-              <li className={selectedColor.cart}>
+              <li className={selectedColor.Cart}>
                 <span className="material-symbols-outlined">shopping_cart</span>
               </li>
               {isEmpty(userinfo) ? (
-                <li onClick={() => setloginshow(true)}>
-                  <button id="signin_home">Sign in</button>
+                <li onClick={() => setShowLogin(true)}>
+                  <button id="sign_in_home">Sign in</button>
                 </li>
               ) : (
                 <li
@@ -49,7 +49,7 @@ export const Header = (props) => {
           </div>
         </header>
       </div>
-      <Signupcom showpop={loginshow} setshowpop={setloginshow} />
+      <SignUp showPopup={showLogin} setShowPopup={setShowLogin} />
     </>
   );
 };

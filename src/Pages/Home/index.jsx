@@ -1,6 +1,6 @@
 import { Header } from "../../Components/Header";
-import { Homeimage } from "../../Components/homeImages";
-import { Sofacomp } from "../../Components/sofaComponent";
+import { HomeImage } from "../../Components/homeImages";
+import { SofaComp } from "../../Components/sofaComponent";
 
 export const Home = () => {
   const selectedColor = {
@@ -8,15 +8,15 @@ export const Home = () => {
     Menu: "",
     About: "",
     Contact: "",
-    whistlist: "",
-    cart: "",
-    profile: "",
+    Wishlist: "",
+    Cart: "",
+    Profile: "",
   };
   return (
     <>
       <Header selectedColor={selectedColor} />
-      <Homeimage />
-      <Sofacomp />
+      <HomeImage />
+      <SofaComp />
     </>
   );
 };

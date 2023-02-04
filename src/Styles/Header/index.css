@@ -28,7 +28,7 @@ header div {
   height: 75px;
   z-index: 99;
 }
-#companyname_div {
+#company_name_div {
   font-size: 24px;
   letter-spacing: 1px;
   color: white;
@@ -41,7 +41,7 @@ header div {
   position: relative;
   top: 22px;
 }
-#signin_home {
+#sign_in_home {
   background-color: darkorange;
   border: none;
   color: white;

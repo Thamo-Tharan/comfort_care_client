@@ -1,9 +1,9 @@
-.span-class-register,.span-class-signin{
+.span-class-register,.span-class-sign_in{
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
-.span-class-register input,.span-class-signin input{
+.span-class-register input,.span-class-sign_in input{
     padding: 10px 16px 10px;
     border-radius: 5px;
     border: 1px solid lightgrey;
@@ -19,11 +19,11 @@
 .modal-footer{
     flex-direction: column;
 }
-#registerspan,#signinspan{
+#register_span,#sign_in_span{
     display: flex;
     gap: 6px;
 }
-#registerspan span , #signinspan span{
+#register_span span , #sign_in_span span{
     text-decoration: underline;
     color: blue;
     cursor: pointer;

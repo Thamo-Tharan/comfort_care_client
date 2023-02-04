@@ -6,7 +6,7 @@ import Image3 from "../../Images/home_image3.webp";
 import Image4 from "../../Images/home_image4.webp";
 import Image5 from "../../Images/home_image5.webp";
 import "../../Styles/homeImages/index.css";
-export const Homeimage = () => {
+export const HomeImage = () => {
   const responsive = {
     superLargeDesktop: {
       // the naming can be any, depends on you.
@@ -38,16 +38,11 @@ export const Homeimage = () => {
       >
         <div className="home-image-auto">
           <div id="text_head">
-            <p id="noraml_text_price">Great Design Collection</p>
+            <p id="normal_text_price">Great Design Collection</p>
             <p className="bold-headed">Cloth Covered Accent Chair</p>
-            <p id="description">
-              Lorem Ipsum Dolor Sit Amet, Consectetur Adipisicing Elit, Sed Do
-              Eiuiana Smod Tempor Ut Labore Et Dolore Magna Aliqua. Ut Enim Ad
-              Minim Veniam, Quis Nostrud Exercitation Ullamco Laboris Nisi Ut
-              Aliquip
-            </p>
-            <strike id="noraml_text_price">₹ 15,000</strike>
-            <p id="noraml_text_price">₹ 12,000</p>
+            <p id="description">Lorem</p>
+            <strike id="normal_text_price">₹ 15,000</strike>
+            <p id="normal_text_price">₹ 12,000</p>
             <button>Buy now</button>
           </div>
           <div id="image_auto_div">
@@ -56,16 +51,11 @@ export const Homeimage = () => {
         </div>
         <div className="home-image-auto">
           <div id="text_head">
-            <p id="noraml_text_price">Great Design Collection</p>
+            <p id="normal_text_price">Great Design Collection</p>
             <p className="bold-headed">Cloth Covered Accent Chair</p>
-            <p id="description">
-              Lorem Ipsum Dolor Sit Amet, Consectetur Adipisicing Elit, Sed Do
-              Eiuiana Smod Tempor Ut Labore Et Dolore Magna Aliqua. Ut Enim Ad
-              Minim Veniam, Quis Nostrud Exercitation Ullamco Laboris Nisi Ut
-              Aliquip
-            </p>
-            <strike id="noraml_text_price">₹ 15,000</strike>
-            <p id="noraml_text_price">₹ 12,000</p>
+            <p id="description">abcd</p>
+            <strike id="normal_text_price">₹ 15,000</strike>
+            <p id="normal_text_price">₹ 12,000</p>
             <button>Buy now</button>
           </div>
           <div id="image_auto_div">
@@ -74,16 +64,11 @@ export const Homeimage = () => {
         </div>
         <div className="home-image-auto">
           <div id="text_head">
-            <p id="noraml_text_price">Great Design Collection</p>
+            <p id="normal_text_price">Great Design Collection</p>
             <p className="bold-headed">Cloth Covered Accent Chair</p>
-            <p id="description">
-              Lorem Ipsum Dolor Sit Amet, Consectetur Adipisicing Elit, Sed Do
-              Eiuiana Smod Tempor Ut Labore Et Dolore Magna Aliqua. Ut Enim Ad
-              Minim Veniam, Quis Nostrud Exercitation Ullamco Laboris Nisi Ut
-              Aliquip
-            </p>
-            <strike id="noraml_text_price">₹ 15,000</strike>
-            <p id="noraml_text_price">₹ 12,000</p>
+            <p id="description">abcd</p>
+            <strike id="normal_text_price">₹ 15,000</strike>
+            <p id="normal_text_price">₹ 12,000</p>
             <button>Buy now</button>
           </div>
           <div id="image_auto_div">
@@ -92,16 +77,11 @@ export const Homeimage = () => {
         </div>
         <div className="home-image-auto">
           <div id="text_head">
-            <p id="noraml_text_price">Great Design Collection</p>
+            <p id="normal_text_price">Great Design Collection</p>
             <p className="bold-headed">Cloth Covered Accent Chair</p>
-            <p id="description">
-              Lorem Ipsum Dolor Sit Amet, Consectetur Adipisicing Elit, Sed Do
-              Eiuiana Smod Tempor Ut Labore Et Dolore Magna Aliqua. Ut Enim Ad
-              Minim Veniam, Quis Nostrud Exercitation Ullamco Laboris Nisi Ut
-              Aliquip
-            </p>
-            <strike id="noraml_text_price">₹ 15,000</strike>
-            <p id="noraml_text_price">₹ 12,000</p>
+            <p id="description">abcd</p>
+            <strike id="normal_text_price">₹ 15,000</strike>
+            <p id="normal_text_price">₹ 12,000</p>
             <button>Buy now</button>
           </div>
           <div id="image_auto_div">
@@ -110,16 +90,11 @@ export const Homeimage = () => {
         </div>
         <div className="home-image-auto">
           <div id="text_head">
-            <p id="noraml_text_price">Great Design Collection</p>
+            <p id="normal_text_price">Great Design Collection</p>
             <p className="bold-headed">Cloth Covered Accent Chair</p>
-            <p id="description">
-              Lorem Ipsum Dolor Sit Amet, Consectetur Adipisicing Elit, Sed Do
-              Eiuiana Smod Tempor Ut Labore Et Dolore Magna Aliqua. Ut Enim Ad
-              Minim Veniam, Quis Nostrud Exercitation Ullamco Laboris Nisi Ut
-              Aliquip
-            </p>
-            <strike id="noraml_text_price">₹ 15,000</strike>
-            <p id="noraml_text_price">₹ 12,000</p>
+            <p id="description">abcd</p>
+            <strike id="normal_text_price">₹ 15,000</strike>
+            <p id="normal_text_price">₹ 12,000</p>
             <button>Buy now</button>
           </div>
           <div id="image_auto_div">
