@@ -1,14 +1,21 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-
-const root = ReactDOM.createRoot(document.getElementById('root'));
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import { legacy_createStore as createStore } from "redux";
+import { Provider } from "react-redux";
+import { combineReducers } from "redux";
+import { storingOrderinfo } from "./Reducers/storingOrderinfo";
+const combinereducer = combineReducers({
+  userOrderinfo: storingOrderinfo,
+});
+const store = createStore(combinereducer);
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <React.StrictMode>
+  <Provider store={store}>
     <App />
-  </React.StrictMode>
+  </Provider>
 );
 
 // If you want to start measuring performance in your app, pass a function

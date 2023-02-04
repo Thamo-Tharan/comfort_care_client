@@ -20,3 +20,6 @@ input[type="text"],textarea{
   padding: 15px 16px 13px;
   box-shadow: none;
 }
+button{
+  border-radius: 0.25rem !important;
+}

@@ -1,0 +1,136 @@
+._53Ji7 {
+  box-shadow: rgb(0 0 0 / 35%) 0px 5px 15px;
+  margin: 0 auto;
+  width: 90%;
+  position: relative;
+  top: 30px;
+  bottom: 0;
+}
+._3uApM ._3CDiP {
+  background-color: gray;
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  padding: 10px 24px;
+}
+._3uApM ._hsN1w {
+  background-color: darkorange;
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  position: relative;
+  bottom: 0;
+  top: -13px;
+  margin: 4px 2px;
+  padding: 10px 24px;
+}
+._2Jtxm ._1hzhf {
+  font-weight: bold;
+}
+._2Jtxm._1CcaK ._2JvrO {
+  background-color: red;
+}
+.delivery-address {
+  color: white;
+  background-color: darkcyan;
+}
+.select-address:hover {
+  cursor: pointer;
+}
+#second_div_sum,
+#first_div_sum {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+#sub_root_sum {
+  display: flex;
+  gap: 10px;
+}
+#sum_image img {
+  width: 50%;
+}
+#summ_add_remove input {
+  display: inline-block;
+  padding: 3px 6px;
+  width: calc(100% - 60px);
+  height: 100%;
+  width: 46px;
+  height: 28px;
+  text-align: center;
+  border-radius: 2px;
+  background-color: #fff;
+  border: 2px solid #c2c2c2;
+  margin: 0 5px;
+}
+#summ_minus {
+  width: 28px;
+  height: 28px;
+  display: inline-block;
+  border: 1px solid #c2c2c2;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 50%;
+  padding-top: 1px;
+  color: white;
+  background: red;
+  line-height: 1;
+  border-radius: 25px !important;
+}
+#summ_plus {
+  width: 28px;
+  height: 28px;
+  display: inline-block;
+  border: 1px solid #c2c2c2;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 50%;
+  padding-top: 1px;
+  color: white;
+  background: green;
+  line-height: 1;
+  border-radius: 25px !important;
+}
+#sum_text div {
+  display: flex;
+  gap: 10px;
+}
+#sum_text {
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+}
+#summ_prd_heading {
+  font-size: 18px;
+  color: #212121;
+  font-weight: bold;
+  line-height: 1;
+  display: inline;
+}
+#sum_text button {
+  display: inline-block;
+  text-transform: capitalize;
+  box-shadow: none;
+  outline: 0;
+  font-size: 17px;
+  font-weight: 500;
+  background: transparent;
+  border: 0px;
+  color: blue;
+  margin-right: 25px;
+  padding: 0px;
+}
+#order_login_image img {
+  width: 18%;
+}
+#order_sub_login_conform p {
+  font-size: 18px;
+  font-weight: bold;
+}

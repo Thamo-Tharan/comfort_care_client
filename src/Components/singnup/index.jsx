@@ -10,6 +10,7 @@ import {
   onValidemail,
   passwordvalidation,
 } from "../../Validations/signInSignup";
+import {useDispatch} from 'react-redux'
 export const Signupcom = (props) => {
   const { showpop, setshowpop } = props;
   const handleClose = () => setshowpop(!showpop);
@@ -26,6 +27,7 @@ export const Signupcom = (props) => {
     password: "",
     repeatpaswd: "",
   });
+  const dispatch=useDispatch();
   //common fun to get inputvalues
   const inputvalues = (id) => document.getElementById(id).value;
   //signup to check all the values
@@ -253,6 +255,7 @@ export const Signupcom = (props) => {
   };
   const signinfun = () => {
     localStorage.setItem("userinfo", inputvalues("username"));
+    dispatch({type:'login',username:inputvalues("username")});
     setshowpop(!showpop);
   };
   return (
