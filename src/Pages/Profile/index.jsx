@@ -1,5 +1,5 @@
 import { Header } from "../../Components/Header";
-import { Profilelayout } from "../../Components/Profile/layout";
+import { ProfileLayout } from "../../Components/Profile/layout";
 export const Profile = () => {
   const selectedColor = {
     Home: "",
@@ -13,7 +13,7 @@ export const Profile = () => {
   return (
     <>
       <Header selectedColor={selectedColor} />
-      <Profilelayout />
+      <ProfileLayout />
     </>
   );
 };

@@ -57,7 +57,7 @@
 #sum_image img {
   width: 50%;
 }
-#summ_add_remove input {
+#sum_add_remove input {
   display: inline-block;
   padding: 3px 6px;
   width: calc(100% - 60px);
@@ -70,7 +70,7 @@
   border: 2px solid #c2c2c2;
   margin: 0 5px;
 }
-#summ_minus {
+#sum_minus {
   width: 28px;
   height: 28px;
   display: inline-block;
@@ -84,7 +84,7 @@
   line-height: 1;
   border-radius: 25px !important;
 }
-#summ_plus {
+#sum_plus {
   width: 28px;
   height: 28px;
   display: inline-block;
@@ -107,7 +107,7 @@
   flex-direction: column;
   align-items: baseline;
 }
-#summ_prd_heading {
+#sum_prd_heading {
   font-size: 18px;
   color: #212121;
   font-weight: bold;

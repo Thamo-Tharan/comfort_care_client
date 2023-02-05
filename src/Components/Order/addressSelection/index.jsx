@@ -6,34 +6,34 @@ import csc from "country-state-city";
 import { useEffect, useState } from "react";
 import { AddressSchema } from "../../../Validations/Address";
 import { useDispatch } from "react-redux";
-export const Orderaddress = (props) => {
-  const {selectadddress}=props
-  const [add_address_show, setadd_address_show] = useState(false);
-  const [addressdata, setaddressdata] = useState([]);
-  const [senddata, setsenddata] = useState([{}]);
+export const OrderAddress = (props) => {
+  const { selectAddress } = props;
+  const [addAddressShow, setAddAddressShow] = useState(false);
+  const [addressData, setAddressData] = useState([]);
+  const [sendData, setSendData] = useState([{}]);
   const dispatch = useDispatch();
-  const selectedaddr = (data, e) => {
+  const selectedAddress = (data, e) => {
     const element = document.getElementsByClassName("select-address");
     for (let i = 0; i < element.length; i++) {
       element[i].classList.remove("delivery-address");
     }
     e.currentTarget.classList.add("delivery-address");
-    dispatch({ type: "address", selectadddress: data });
+    dispatch({ type: "address", selectAddress: data });
   };
-  const Customhookforaddress = (props) => {
-    const { inputvalues, keyvalue } = props;
-    const addressFromik = useFormik({
-      initialValues: inputvalues,
+  const CustomHookForAddress = (props) => {
+    const { inputValues, keyValue } = props;
+    const addressForm = useFormik({
+      initialValues: inputValues,
       validationSchema: AddressSchema,
       onSubmit: (values) => {
-        const prev = addressdata;
-        if (add_address_show === false) {
-          prev[keyvalue] = values;
-          setaddressdata(prev);
+        const prev = addressData;
+        if (addAddressShow === false) {
+          prev[keyValue] = values;
+          setAddressData(prev);
         } else {
           prev.push(values);
-          setaddressdata(prev);
-          setadd_address_show(!add_address_show);
+          setAddressData(prev);
+          setAddAddressShow(!addAddressShow);
         }
         console.log(prev);
       },
@@ -52,11 +52,11 @@ export const Orderaddress = (props) => {
       csc
         .getCitiesOfState(stateId)
         .map((city) => ({ label: city.name, value: city.id, ...city }));
-    const { values, setFieldValue, handleSubmit, setValues } = addressFromik;
+    const { values, setFieldValue, handleSubmit, setValues } = addressForm;
 
     useEffect(() => {}, [values]);
     return (
-      <div id="newadd_inupt">
+      <div id="new_add_input">
         <div id="add_type">
           <div>
             <label htmlFor="field-rain" className="radio-values">
@@ -81,8 +81,8 @@ export const Orderaddress = (props) => {
               />
               Work
             </label>
-            {addressFromik.touched.type && addressFromik.errors.type && (
-              <span className="text-red-400">{addressFromik.errors.type}</span>
+            {addressForm.touched.type && addressForm.errors.type && (
+              <span className="text-red-400">{addressForm.errors.type}</span>
             )}
           </div>
         </div>
@@ -97,8 +97,8 @@ export const Orderaddress = (props) => {
                 setFieldValue("name", value.currentTarget.value)
               }
             />
-            {addressFromik.touched.name && addressFromik.errors.name && (
-              <span className="text-red-400">{addressFromik.errors.name}</span>
+            {addressForm.touched.name && addressForm.errors.name && (
+              <span className="text-red-400">{addressForm.errors.name}</span>
             )}
           </div>
           <div id="mob">
@@ -106,15 +106,15 @@ export const Orderaddress = (props) => {
               id="mob"
               type="text"
               placeholder="Mobile number"
-              value={values.mobilenumber}
+              value={values.mobileNumber}
               onChange={(value) =>
-                setFieldValue("mobilenumber", value.currentTarget.value)
+                setFieldValue("mobileNumber", value.currentTarget.value)
               }
             />
-            {addressFromik.touched.mobilenumber &&
-              addressFromik.errors.mobilenumber && (
+            {addressForm.touched.mobileNumber &&
+              addressForm.errors.mobileNumber && (
                 <span className="text-red-400">
-                  {addressFromik.errors.mobilenumber}
+                  {addressForm.errors.mobileNumber}
                 </span>
               )}
           </div>
@@ -122,16 +122,14 @@ export const Orderaddress = (props) => {
             <input
               id="pin"
               type="text"
-              placeholder="Pincode"
-              value={values.pincode}
+              placeholder="pinCode"
+              value={values.pinCode}
               onChange={(value) =>
-                setFieldValue("pincode", value.currentTarget.value)
+                setFieldValue("pinCode", value.currentTarget.value)
               }
             />
-            {addressFromik.touched.pincode && addressFromik.errors.pincode && (
-              <span className="text-red-400">
-                {addressFromik.errors.pincode}
-              </span>
+            {addressForm.touched.pinCode && addressForm.errors.pinCode && (
+              <span className="text-red-400">{addressForm.errors.pinCode}</span>
             )}
           </div>
           <div id="locality">
@@ -144,12 +142,11 @@ export const Orderaddress = (props) => {
                 setFieldValue("locality", value.currentTarget.value)
               }
             />
-            {addressFromik.touched.locality &&
-              addressFromik.errors.locality && (
-                <span className="text-red-400">
-                  {addressFromik.errors.locality}
-                </span>
-              )}
+            {addressForm.touched.locality && addressForm.errors.locality && (
+              <span className="text-red-400">
+                {addressForm.errors.locality}
+              </span>
+            )}
           </div>
         </div>
         <div id="type_address">
@@ -162,8 +159,8 @@ export const Orderaddress = (props) => {
               setFieldValue("address", value.currentTarget.value)
             }
           />
-          {addressFromik.touched.address && addressFromik.errors.address && (
-            <span className="text-red-400">{addressFromik.errors.address}</span>
+          {addressForm.touched.address && addressForm.errors.address && (
+            <span className="text-red-400">{addressForm.errors.address}</span>
           )}
         </div>
         <div id="state_div">
@@ -182,10 +179,8 @@ export const Orderaddress = (props) => {
                 );
               }}
             />
-            {addressFromik.touched.country && addressFromik.errors.country && (
-              <span className="text-red-400">
-                {addressFromik.errors.country}
-              </span>
+            {addressForm.touched.country && addressForm.errors.country && (
+              <span className="text-red-400">{addressForm.errors.country}</span>
             )}
           </div>
           <div>
@@ -201,8 +196,8 @@ export const Orderaddress = (props) => {
                 setValues({ ...values, state: value, city: null }, false);
               }}
             />
-            {addressFromik.touched.state && addressFromik.errors.state && (
-              <span className="text-red-400">{addressFromik.errors.state}</span>
+            {addressForm.touched.state && addressForm.errors.state && (
+              <span className="text-red-400">{addressForm.errors.state}</span>
             )}
           </div>
           <div>
@@ -214,8 +209,8 @@ export const Orderaddress = (props) => {
               value={values.city}
               onChange={(value) => setFieldValue("city", value)}
             />
-            {addressFromik.touched.city && addressFromik.errors.city && (
-              <span className="text-red-400">{addressFromik.errors.city}</span>
+            {addressForm.touched.city && addressForm.errors.city && (
+              <span className="text-red-400">{addressForm.errors.city}</span>
             )}
           </div>
 
@@ -237,7 +232,7 @@ export const Orderaddress = (props) => {
           </button>
           <button
             id="cancel"
-            onClick={() => setadd_address_show(!add_address_show)}
+            onClick={() => setAddAddressShow(!addAddressShow)}
           >
             Cancel
           </button>
@@ -248,25 +243,25 @@ export const Orderaddress = (props) => {
   return (
     <div id="address_root">
       <div>
-        {add_address_show ? (
-          <Customhookforaddress inputvalues={senddata} />
+        {addAddressShow ? (
+          <CustomHookForAddress inputValues={sendData} />
         ) : (
           <div
             id="add_address_div"
             onClick={() => {
-              setsenddata({
+              setSendData({
                 country: "",
                 state: "",
                 city: "",
                 type: "",
                 name: "",
-                mobilenumber: "",
-                pincode: "",
+                mobileNumber: "",
+                pinCode: "",
                 locality: "",
                 address: "",
                 landmark: "",
               });
-              setadd_address_show(!add_address_show);
+              setAddAddressShow(!addAddressShow);
             }}
           >
             <span className="material-symbols-outlined">post_add</span>
@@ -274,15 +269,14 @@ export const Orderaddress = (props) => {
           </div>
         )}
       </div>
-      {addressdata.map((data, index) => {
-        return (
-          selectadddress===data ? 
+      {addressData.map((data, index) => {
+        return selectAddress === data ? (
           <div
-            id="myaddrees"
+            id="my_address"
             className="select-address delivery-address"
             key={index}
             data-key={index}
-            onClick={(e) => selectedaddr(data, e)}
+            onClick={(e) => selectedAddress(data, e)}
           >
             <div id="add_heading">
               <div id="add_type">
@@ -291,23 +285,23 @@ export const Orderaddress = (props) => {
             </div>
             <div id="name_heading">
               <p>{data.name}</p>
-              <p>{data.mobilenumber}</p>
+              <p>{data.mobileNumber}</p>
             </div>
             <div id="add_value">
               <p>{data.address},</p>
               <p>{data.locality},</p>
               <p>{data.city.name},</p>
               <p>{data.state.name}-</p>
-              <p id="pincode">{data.pincode}</p>
+              <p id="pinCode">{data.pinCode}</p>
             </div>
           </div>
-          :
+        ) : (
           <div
-            id="myaddrees"
+            id="my_address"
             className="select-address"
             key={index}
             data-key={index}
-            onClick={(e) => selectedaddr(data, e)}
+            onClick={(e) => selectedAddress(data, e)}
           >
             <div id="add_heading">
               <div id="add_type">
@@ -316,14 +310,14 @@ export const Orderaddress = (props) => {
             </div>
             <div id="name_heading">
               <p>{data.name}</p>
-              <p>{data.mobilenumber}</p>
+              <p>{data.mobileNumber}</p>
             </div>
             <div id="add_value">
               <p>{data.address},</p>
               <p>{data.locality},</p>
               <p>{data.city.name},</p>
               <p>{data.state.name}-</p>
-              <p id="pincode">{data.pincode}</p>
+              <p id="pinCode">{data.pinCode}</p>
             </div>
           </div>
         );

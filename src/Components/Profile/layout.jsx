@@ -1,44 +1,44 @@
 import { useState } from "react";
 import "../../Styles/Profile/index.css";
-import { Profileinformation } from "./Profileinformation";
 import { Address } from "./Address";
-export const Profilelayout = () => {
-  const [defaultcolor, setdefault] = useState({
+import { ProfileInformation } from "./Profileinformation";
+export const ProfileLayout = () => {
+  const [defaultColor, setDefaultColor] = useState({
     profile: "active",
     address: "",
     order: "",
   });
-  const [render, setrender] = useState(<Profileinformation />);
-  const layoutchangefun = (e) => {
+  const [render, setRender] = useState(<ProfileInformation/>);
+  const layoutChangeFunction = (e) => {
     switch (e.currentTarget.firstChild.textContent) {
       case "person":
-        return defaultcolor.profile === "active"
+        return defaultColor.profile === "active"
           ? null
-          : setrender(()=><Profileinformation />)(
-              setdefault({
-                ...defaultcolor,
+          : setRender(()=><ProfileInformation />)(
+              setDefaultColor({
+                ...defaultColor,
                 profile: "active",
                 address: "",
                 order: "",
               })
             );
       case "home":
-        return defaultcolor.address === "active"
+        return defaultColor.address === "active"
           ? null
-          : setrender(<Address />)(
-              setdefault({
-                ...defaultcolor,
+          : setRender(<Address />)(
+              setDefaultColor({
+                ...defaultColor,
                 address: "active",
                 order: "",
                 profile: "",
               })
             );
       case "list_alt":
-        return defaultcolor.order === "active"
+        return defaultColor.order === "active"
           ? null
-          : setrender("")(
-              setdefault({
-                ...defaultcolor,
+          : setRender("")(
+              setDefaultColor({
+                ...defaultColor,
                 order: "active",
                 address: "",
                 profile: "",
@@ -48,24 +48,24 @@ export const Profilelayout = () => {
     }
   };
   return (
-    <div id="profilelayout">
-      <div id="profilelayout_parent">
+    <div id="profile_layout">
+      <div id="profile_layout_parent">
         <div id="profile_div">TK</div>
         <div id="profile_info_div">
           <ol>
-            <li className={defaultcolor.profile} onClick={layoutchangefun}>
+            <li className={defaultColor.profile} onClick={layoutChangeFunction}>
               <span className="material-symbols-outlined">person</span>
               Profile Information
             </li>
-            <li className={defaultcolor.address} onClick={layoutchangefun}>
+            <li className={defaultColor.address} onClick={layoutChangeFunction}>
               <span className="material-symbols-outlined">home</span>
               Manage Addresses
             </li>
-            <li className={defaultcolor.order} onClick={layoutchangefun}>
+            <li className={defaultColor.order} onClick={layoutChangeFunction}>
               <span className="material-symbols-outlined">list_alt</span>
               My Orders
             </li>
-            <li onClick={layoutchangefun}>
+            <li onClick={layoutChangeFunction}>
               <span className="material-symbols-outlined">logout</span>
               Logout
             </li>

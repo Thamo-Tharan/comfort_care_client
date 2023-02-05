@@ -2,28 +2,28 @@
 import StepProgressBar from "react-step-progress";
 import "react-step-progress/dist/index.css";
 import "../../Styles/Order/index.css";
-import { Orderaddress } from "./addressSelection";
+import { OrderAddress } from "./addressSelection";
 import { useSelector } from "react-redux";
 import { useEffect } from "react";
-import { Ordersummary } from "./orderSummary";
+import { OrderSummary } from "./orderSummary";
 import { HeaderOrder } from "./Header";
 import { isEmpty } from "lodash";
-import { Loginconfirm } from "./loginConfirm";
-const getSelectors = (state) => state.userOrderinfo;
-let orderob = { login: "", address: "" };
+import { LoginConfirm } from "./loginConfirm";
+const getSelectors = (state) => state.userOrderInfo;
+let orderObject = { login: "", address: "" };
 export const Order = () => {
-  const { selectadddress } = useSelector(getSelectors);
+  const { selectAddress } = useSelector(getSelectors);
   const userinfo = localStorage.getItem("userinfo");
   useEffect(() => {
-    selectadddress !== ""
-      ? (orderob.address = selectadddress)
-      : (orderob.address = "");
-    console.log(selectadddress);
-  }, [selectadddress]);
+    selectAddress !== ""
+      ? (orderObject.address = selectAddress)
+      : (orderObject.address = "");
+    console.log(selectAddress);
+  }, [selectAddress]);
 
   function step2Validator() {
-    console.log(orderob.address);
-    return orderob.address !== "";
+    console.log(orderObject.address);
+    return orderObject.address !== "";
   }
 
   function step3Validator() {
@@ -46,18 +46,18 @@ export const Order = () => {
           {
             label: "Login",
             name: "step 1",
-            content: !isEmpty(userinfo) ? <Loginconfirm /> : null,
+            content: !isEmpty(userinfo) ? <LoginConfirm /> : null,
           },
           {
             label: "Delivery Address",
             name: "step 2",
-            content: <Orderaddress selectadddress={selectadddress} />,
+            content: <OrderAddress selectAddress={selectAddress} />,
             validator: step2Validator,
           },
           {
             label: "Order Summary",
             name: "step 3",
-            content: <Ordersummary />,
+            content: <OrderSummary />,
           },
           {
             label: "Payment Options",

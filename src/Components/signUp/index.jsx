@@ -14,13 +14,13 @@ import { useDispatch } from "react-redux";
 export const SignUp = (props) => {
   const { showPopup, setShowPopup } = props;
   const handleClose = () => setShowPopup(!showPopup);
-  const [mode, setMode] = useState("signin");
+  const [mode, setMode] = useState("SignIn");
   const [buttonDisabled, setButtonDisabled] = useState(true);
-  const [signInError, setSignInError] = useState({
+  const [SignInError, setSignInError] = useState({
     username: "",
     password: "",
   });
-  const [signUpError, setSignUpError] = useState({
+  const [SignUpError, setSignUpError] = useState({
     username: "",
     email: "",
     mobile: "",
@@ -30,8 +30,8 @@ export const SignUp = (props) => {
   const dispatch = useDispatch();
   //common fun to get inputValues
   const inputValues = (id) => document.getElementById(id).value;
-  //signup to check all the values
-  const signUpValueChecking = (elements) => {
+  //SignUp to check all the values
+  const SignUpValueChecking = (elements) => {
     let count = 0;
     for (let index = 0; index < elements.length; index++) {
       if (elements[index].value !== "") {
@@ -67,12 +67,12 @@ export const SignUp = (props) => {
             currentFocus === "username":
             const userResult = onValidUsername(parentElement[index].value);
             return userResult
-              ? (setSignInError({ ...signInError, username: "" }),
-                signInError.password === "" && nextValueCheck !== ""
+              ? (setSignInError({ ...SignInError, username: "" }),
+                SignInError.password === "" && nextValueCheck !== ""
                   ? setButtonDisabled(false)
                   : setButtonDisabled(true))
               : (setSignInError({
-                  ...signInError,
+                  ...SignInError,
                   username: "Please enter valid username",
                 }),
                 setButtonDisabled(true));
@@ -82,12 +82,12 @@ export const SignUp = (props) => {
               parentElement[index].value
             );
             return passwordResult
-              ? (setSignInError({ ...signInError, password: "" }),
-                signInError.username === "" && nextValueCheck !== ""
+              ? (setSignInError({ ...SignInError, password: "" }),
+                SignInError.username === "" && nextValueCheck !== ""
                   ? setButtonDisabled(false)
                   : setButtonDisabled(true))
               : (setSignInError({
-                  ...signInError,
+                  ...SignInError,
                   password: "Password at least 8 character",
                 }),
                 setButtonDisabled(true));
@@ -107,7 +107,7 @@ export const SignUp = (props) => {
     // to find the current actions input
     const currentFocus = e.currentTarget.id;
     //to check other values are empty or not
-    const otherValues = signUpValueChecking(parentElement);
+    const otherValues = SignUpValueChecking(parentElement);
     if (e.currentTarget.value !== "") {
       for (let index = 0; index < parentElement.length; index++) {
         switch (true) {
@@ -115,32 +115,32 @@ export const SignUp = (props) => {
             currentFocus === "username":
             const userResult = onValidUsername(parentElement[index].value);
             return userResult
-              ? (setSignUpError({ ...signUpError, username: "" }),
-                signUpError.password === "" &&
-                signUpError.repeatPassword === "" &&
-                signUpError.mobile === "" &&
-                signUpError.email === "" &&
+              ? (setSignUpError({ ...SignUpError, username: "" }),
+                SignUpError.password === "" &&
+                SignUpError.repeatPassword === "" &&
+                SignUpError.mobile === "" &&
+                SignUpError.email === "" &&
                 otherValues
                   ? setButtonDisabled(false)
                   : setButtonDisabled(true))
               : (setSignUpError({
-                  ...signUpError,
+                  ...SignUpError,
                   username: "Please enter valid username",
                 }),
                 setButtonDisabled(true));
           case parentElement[index].id === "email" && currentFocus === "email":
             const emailResult = onValidEmail(parentElement[index].value);
             return emailResult
-              ? (setSignUpError({ ...signUpError, email: "" }),
-                signUpError.password === "" &&
-                signUpError.repeatPassword === "" &&
-                signUpError.mobile === "" &&
-                signUpError.username === "" &&
+              ? (setSignUpError({ ...SignUpError, email: "" }),
+                SignUpError.password === "" &&
+                SignUpError.repeatPassword === "" &&
+                SignUpError.mobile === "" &&
+                SignUpError.username === "" &&
                 otherValues
                   ? setButtonDisabled(false)
                   : setButtonDisabled(true))
               : (setSignUpError({
-                  ...signUpError,
+                  ...SignUpError,
                   email: "Please enter valid email",
                 }),
                 setButtonDisabled(true));
@@ -150,16 +150,16 @@ export const SignUp = (props) => {
               parentElement[index].value
             );
             return mobileResult
-              ? (setSignUpError({ ...signUpError, mobile: "" }),
-                signUpError.password === "" &&
-                signUpError.repeatPassword === "" &&
-                signUpError.email === "" &&
-                signUpError.username === "" &&
+              ? (setSignUpError({ ...SignUpError, mobile: "" }),
+                SignUpError.password === "" &&
+                SignUpError.repeatPassword === "" &&
+                SignUpError.email === "" &&
+                SignUpError.username === "" &&
                 otherValues
                   ? setButtonDisabled(false)
                   : setButtonDisabled(true))
               : (setSignUpError({
-                  ...signUpError,
+                  ...SignUpError,
                   mobile: "Please enter valid mobileNumber",
                 }),
                 setButtonDisabled(true));
@@ -171,32 +171,32 @@ export const SignUp = (props) => {
                 parentElement[index].value
               );
               return passwordResult
-                ? (setSignUpError({ ...signUpError, password: "" }),
-                  signUpError.mobile === "" &&
-                  signUpError.repeatPassword === "" &&
-                  signUpError.email === "" &&
-                  signUpError.username === "" &&
+                ? (setSignUpError({ ...SignUpError, password: "" }),
+                  SignUpError.mobile === "" &&
+                  SignUpError.repeatPassword === "" &&
+                  SignUpError.email === "" &&
+                  SignUpError.username === "" &&
                   otherValues
                     ? setButtonDisabled(false)
                     : setButtonDisabled(true))
                 : (setSignUpError({
-                    ...signUpError,
-                    password: "Password atleast 8 character",
+                    ...SignUpError,
+                    password: "Password must be atleast 8 character",
                   }),
                   setButtonDisabled(true));
             } else {
               const sameValueCheck = e.currentTarget.value === nextValueCheck;
               return sameValueCheck
-                ? (setSignUpError({ ...signUpError, password: "" }),
-                  signUpError.mobile === "" &&
-                  signUpError.repeatPassword === "" &&
-                  signUpError.email === "" &&
-                  signUpError.username === "" &&
+                ? (setSignUpError({ ...SignUpError, password: "" }),
+                  SignUpError.mobile === "" &&
+                  SignUpError.repeatPassword === "" &&
+                  SignUpError.email === "" &&
+                  SignUpError.username === "" &&
                   otherValues
                     ? setButtonDisabled(false)
                     : setButtonDisabled(true))
                 : (setSignUpError({
-                    ...signUpError,
+                    ...SignUpError,
                     password: "Password not matching",
                   }),
                   setButtonDisabled(true));
@@ -209,32 +209,32 @@ export const SignUp = (props) => {
                 parentElement[index].value
               );
               return passwordResult
-                ? (setSignUpError({ ...signUpError, repeatPassword: "" }),
-                  signUpError.mobile === "" &&
-                  signUpError.password === "" &&
-                  signUpError.email === "" &&
-                  signUpError.username === "" &&
+                ? (setSignUpError({ ...SignUpError, repeatPassword: "" }),
+                  SignUpError.mobile === "" &&
+                  SignUpError.password === "" &&
+                  SignUpError.email === "" &&
+                  SignUpError.username === "" &&
                   otherValues
                     ? setButtonDisabled(false)
                     : setButtonDisabled(true))
                 : (setSignUpError({
-                    ...signUpError,
-                    repeatPassword: "Password atleast 8 character",
+                    ...SignUpError,
+                    repeatPassword: "Password must be atleast 8 character",
                   }),
                   setButtonDisabled(true));
             } else {
               const sameValueCheck = e.currentTarget.value === passwordCheck;
               return sameValueCheck
-                ? (setSignUpError({ ...signUpError, repeatPassword: "" }),
-                  signUpError.mobile === "" &&
-                  signUpError.password === "" &&
-                  signUpError.email === "" &&
-                  signUpError.username === "" &&
+                ? (setSignUpError({ ...SignUpError, repeatPassword: "" }),
+                  SignUpError.mobile === "" &&
+                  SignUpError.password === "" &&
+                  SignUpError.email === "" &&
+                  SignUpError.username === "" &&
                   otherValues
                     ? setButtonDisabled(false)
                     : setButtonDisabled(true))
                 : (setSignUpError({
-                    ...signUpError,
+                    ...SignUpError,
                     repeatPassword: "Password not matching",
                   }),
                   setButtonDisabled(true));
@@ -253,7 +253,7 @@ export const SignUp = (props) => {
       setButtonDisabled(true);
     }
   };
-  const signInFunction = () => {
+  const SignInFunction = () => {
     localStorage.setItem("userinfo", inputValues("username"));
     dispatch({type:'login',username:inputValues("username")});
     setShowPopup(!showPopup);
@@ -263,7 +263,7 @@ export const SignUp = (props) => {
       <Modal show={showPopup}>
         <Modal.Header>
           <Modal.Title>
-            {mode === "signin" ? "Signin Form" : "Signup Form"}
+            {mode === "SignIn" ? "SignIn Form" : "SignUp Form"}
           </Modal.Title>
           <span className="material-symbols-outlined" onClick={handleClose}>
             close
@@ -271,8 +271,8 @@ export const SignUp = (props) => {
         </Modal.Header>
         <Modal.Body>
           <div className="register">
-            {mode === "signin" ? (
-              <div className="span-class-signin">
+            {mode === "SignIn" ? (
+              <div className="span-class-sign_in">
                 <div>
                   <input
                     id="username"
@@ -280,8 +280,8 @@ export const SignUp = (props) => {
                     placeholder="Username"
                     onChange={validateFunction}
                   />
-                  {signInError.username !== "" ? (
-                    <p className="error-class">{signInError.username}</p>
+                  {SignInError.username !== "" ? (
+                    <p className="error-class">{SignInError.username}</p>
                   ) : null}
                 </div>
                 <div>
@@ -291,8 +291,8 @@ export const SignUp = (props) => {
                     placeholder="Password"
                     onChange={validateFunction}
                   />
-                  {signInError.password !== "" ? (
-                    <p className="error-class">{signInError.password}</p>
+                  {SignInError.password !== "" ? (
+                    <p className="error-class">{SignInError.password}</p>
                   ) : null}
                 </div>
               </div>
@@ -305,8 +305,8 @@ export const SignUp = (props) => {
                     placeholder="Username"
                     onChange={registerFunction}
                   />
-                  {signUpError.username !== "" ? (
-                    <p className="error-class">{signUpError.username}</p>
+                  {SignUpError.username !== "" ? (
+                    <p className="error-class">{SignUpError.username}</p>
                   ) : null}
                 </div>
                 <div>
@@ -316,8 +316,8 @@ export const SignUp = (props) => {
                     placeholder="Email address"
                     onChange={registerFunction}
                   />
-                  {signUpError.email !== "" ? (
-                    <p className="error-class">{signUpError.email}</p>
+                  {SignUpError.email !== "" ? (
+                    <p className="error-class">{SignUpError.email}</p>
                   ) : null}
                 </div>
                 <div>
@@ -327,8 +327,8 @@ export const SignUp = (props) => {
                     placeholder="mobileNumber"
                     onChange={registerFunction}
                   />
-                  {signUpError.mobile !== "" ? (
-                    <p className="error-class">{signUpError.mobile}</p>
+                  {SignUpError.mobile !== "" ? (
+                    <p className="error-class">{SignUpError.mobile}</p>
                   ) : null}
                 </div>
                 <div>
@@ -338,8 +338,8 @@ export const SignUp = (props) => {
                     placeholder="Password"
                     onChange={registerFunction}
                   />
-                  {signUpError.password !== "" ? (
-                    <p className="error-class">{signUpError.password}</p>
+                  {SignUpError.password !== "" ? (
+                    <p className="error-class">{SignUpError.password}</p>
                   ) : null}
                 </div>
                 <div>
@@ -349,8 +349,8 @@ export const SignUp = (props) => {
                     placeholder="Confirm password"
                     onChange={registerFunction}
                   />
-                  {signUpError.repeatPassword !== "" ? (
-                    <p className="error-class">{signUpError.repeatPassword}</p>
+                  {SignUpError.repeatPassword !== "" ? (
+                    <p className="error-class">{SignUpError.repeatPassword}</p>
                   ) : null}
                 </div>
               </div>
@@ -358,13 +358,13 @@ export const SignUp = (props) => {
           </div>
         </Modal.Body>
         <Modal.Footer>
-          {mode === "signin" ? (
+          {mode === "SignIn" ? (
             <>
-              <div id="signinspan">
+              <div id="sign_in_span">
                 <p>Don't have account</p>
                 <span
                   onClick={() => {
-                    setMode("signup");
+                    setMode("SignUp");
                     setSignInError({ username: "", password: "" });
                     setButtonDisabled(true);
                     emptyInputFunction();
@@ -376,18 +376,18 @@ export const SignUp = (props) => {
               <Button
                 variant="primary"
                 disabled={buttonDisabled}
-                onClick={signInFunction}
+                onClick={SignInFunction}
               >
                 SignIn
               </Button>
             </>
           ) : (
             <>
-              <div id="registerspan">
+              <div id="register_span">
                 <p>Already have account</p>
                 <span
                   onClick={() => {
-                    setMode("signin");
+                    setMode("SignIn");
                     setButtonDisabled(true);
                     setSignUpError({
                       username: "",

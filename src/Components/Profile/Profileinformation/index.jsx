@@ -1,9 +1,9 @@
 import { useState } from "react";
 import "../../../Styles/Profile/index.css";
-export const Profileinformation = () => {
+export const ProfileInformation = () => {
   const [gender, setGender] = useState("");
-  const [saveenabled, setsaveenabled] = useState("event-disable");
-  const [mode, setmode] = useState("Edit");
+  const [saveEnabled, setSaveEnabled] = useState("event-disable");
+  const [mode, setMode] = useState("Edit");
   return (
     <div id="prof_info_root">
       <div>
@@ -11,14 +11,14 @@ export const Profileinformation = () => {
           <p>Profile Information</p>
           <span
             onClick={() => {
-              setsaveenabled((prev) => (prev === "" ? "event-disable" : ""));
-              setmode((prev) => (prev === "Cancel" ? "Edit" : "Cancel"));
+              setSaveEnabled((prev) => (prev === "" ? "event-disable" : ""));
+              setMode((prev) => (prev === "Cancel" ? "Edit" : "Cancel"));
             }}
           >
             {mode}
           </span>
         </div>
-        <div id="username_edit" className={saveenabled}>
+        <div id="username_edit" className={saveEnabled}>
           <input id="username" type="text" placeholder="Username" />
           <div>
             <label>Your Gender</label>
@@ -43,7 +43,7 @@ export const Profileinformation = () => {
           </div>
         </div>
       </div>
-      <div className={saveenabled}>
+      <div className={saveEnabled}>
         <div id="profile_head">
           <p>Email Address</p>
         </div>
@@ -51,7 +51,7 @@ export const Profileinformation = () => {
           <input id="email" type="text" placeholder="Email" />
         </div>
       </div>
-      <div className={saveenabled}>
+      <div className={saveEnabled}>
         <div id="profile_head">
           <p>Mobile Number</p>
         </div>
@@ -59,14 +59,14 @@ export const Profileinformation = () => {
           <input id="mobilenumber" type="text" placeholder="Mobilenumber" />
         </div>
       </div>
-      {saveenabled === "" ? (
+      {saveEnabled === "" ? (
         <div id="save_cancel_div">
           <button id="profile_save">Save</button>
           <button
             id="profile_cancel"
             onClick={() => {
-              setsaveenabled("event-disable");
-              setmode("Edit");
+              setSaveEnabled("event-disable");
+              setMode("Edit");
             }}
           >
             Cancel

@@ -53,7 +53,7 @@ export const HomeImage = () => {
           <div id="text_head">
             <p id="normal_text_price">Great Design Collection</p>
             <p className="bold-headed">Cloth Covered Accent Chair</p>
-            <p id="description">abcd</p>
+            <p id="description">lorem epsum </p>
             <strike id="normal_text_price">₹ 15,000</strike>
             <p id="normal_text_price">₹ 12,000</p>
             <button>Buy now</button>

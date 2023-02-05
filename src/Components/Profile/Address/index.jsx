@@ -73,7 +73,7 @@ export const Address = () => {
 
     useEffect(() => {}, [values]);
     return (
-      <div id="newadd_inupt">
+      <div id="new_add_input">
         <div id="add_type">
           <div>
             <label htmlFor="field-rain" className="radio-values">
@@ -302,7 +302,7 @@ export const Address = () => {
             keyvalue={index}
           />
         ) : (
-          <div id="myaddrees" key={index} data-key={index}>
+          <div id="my_address" key={index} data-key={index}>
             <div id="add_heading">
               <div id="add_type">
                 <p>{data.type}</p>

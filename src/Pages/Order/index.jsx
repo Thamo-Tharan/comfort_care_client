@@ -1,5 +1,5 @@
 import { Order } from "../../Components/Order";
-export const Orderpage=()=>{
+export const OrderPage=()=>{
     return(
         <>
         <Order/>

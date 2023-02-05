@@ -20,7 +20,7 @@
   padding: 0px;
   gap: 50px;
 }
-#profilelayout_parent {
+#profile_layout_parent {
   display: flex;
   flex-direction: column;
   gap: 80px;
@@ -33,7 +33,7 @@
   align-items: center;
   gap: 5px;
 }
-#profilelayout {
+#profile_layout {
   display: grid;
   grid-template-columns: 20% 80%;
   height: 100vh;
@@ -169,7 +169,7 @@
   color: blue;
   text-decoration: underline;
 }
-#edit_type p:nth-child(even){
+#edit_type p:nth-child(even) {
   color: red;
 }
 #name_heading p {
@@ -178,11 +178,11 @@
 #pincode {
   font-weight: bold;
 }
-#myaddrees {
+#my_address {
   padding: 15px;
   box-shadow: rgb(0 0 0 / 24%) 0px 3px 8px;
 }
-#newadd_inupt {
+#new_add_input {
   display: flex;
   flex-direction: column;
   gap: 20px;
