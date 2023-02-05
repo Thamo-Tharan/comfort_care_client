@@ -6,11 +6,11 @@ import reportWebVitals from "./reportWebVitals";
 import { legacy_createStore as createStore } from "redux";
 import { Provider } from "react-redux";
 import { combineReducers } from "redux";
-import { storingOrderinfo } from "./Reducers/storingOrderinfo";
-const combinereducer = combineReducers({
-  userOrderinfo: storingOrderinfo,
+import { storingOrderInfo } from "./Reducers/storingOrderinfo";
+const combineReducer = combineReducers({
+  userOrderInfo: storingOrderInfo,
 });
-const store = createStore(combinereducer);
+const store = createStore(combineReducer);
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <Provider store={store}>

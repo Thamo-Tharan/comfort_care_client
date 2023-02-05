@@ -1,19 +1,19 @@
-const Orderinfo = {
+const orderInfo = {
   userinfo: "",
-  selectadddress: "",
-  orderproduct: "",
-  paymentmode: "",
+  selectAddress: "",
+  orderProduct: "",
+  paymentMode: "",
 };
-export const storingOrderinfo = (state = Orderinfo, action) => {
+export const storingOrderInfo = (state = orderInfo, action) => {
   switch (action.type) {
     case "login":
       return { ...state, userinfo: action.userinfo };
     case "address":
-      return { ...state, selectadddress: action.selectadddress };
-    case "orderproduct":
-      return { ...state, orderproduct: action.orderproduct };
-    case "paymentmode":
-      return { ...state, paymentmode: action.paymentmode };
+      return { ...state, selectAddress: action.selectAddress };
+    case "orderProduct":
+      return { ...state, orderProduct: action.orderProduct };
+    case "paymentMode":
+      return { ...state, paymentMode: action.paymentMode };
     default:
       return state;
   }
