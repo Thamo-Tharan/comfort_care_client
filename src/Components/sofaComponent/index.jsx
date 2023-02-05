@@ -1,6 +1,7 @@
 import Image1 from "../../Images/home_image1.png";
 import "../../Styles/sofaComponent/index.css";
 import Carousel from "react-multi-carousel";
+import { FaHeart } from "react-icons/fa";
 import "react-multi-carousel/lib/styles.css";
 import Image5 from "../../Images/home_image5.webp";
 export const SofaComp = () => {
@@ -45,7 +46,7 @@ export const SofaComp = () => {
           <div id="fav_icon_div">
             <div></div>
             <div>
-              <span className="material-symbols-outlined">favorite</span>
+              <FaHeart />
             </div>
           </div>
           <div>
@@ -60,7 +61,7 @@ export const SofaComp = () => {
           <div id="fav_icon_div">
             <div></div>
             <div>
-              <span className="material-symbols-outlined">favorite</span>
+              <FaHeart />
             </div>
           </div>
           <div>
@@ -75,7 +76,7 @@ export const SofaComp = () => {
           <div id="fav_icon_div">
             <div></div>
             <div>
-              <span className="material-symbols-outlined">favorite</span>
+              <FaHeart />
             </div>
           </div>
           <div>
@@ -90,7 +91,7 @@ export const SofaComp = () => {
           <div id="fav_icon_div">
             <div></div>
             <div>
-              <span className="material-symbols-outlined">favorite</span>
+              <FaHeart />
             </div>
           </div>
           <div>
@@ -105,7 +106,7 @@ export const SofaComp = () => {
           <div id="fav_icon_div">
             <div></div>
             <div>
-              <span className="material-symbols-outlined">favorite</span>
+              <FaHeart />
             </div>
           </div>
           <div>

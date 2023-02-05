@@ -3,6 +3,8 @@ import "../../Styles/Header/index.css";
 import { isEmpty } from "lodash";
 import { useNavigate } from "react-router-dom";
 import { SignUp } from "../signUp";
+import NotificationBadge from "react-notification-badge";
+import { Effect } from "react-notification-badge";
 export const Header = (props) => {
   const { selectedColor } = props;
   const navigate = useNavigate();
@@ -32,11 +34,16 @@ export const Header = (props) => {
           </div>
           <div id="icons_list">
             <ol>
-              <li className={selectedColor.Wishlist}>
+              <li
+                className={selectedColor.Wishlist}
+                onClick={() => navigate("/wishlist")}
+              >
                 <span className="material-symbols-outlined">favorite</span>
+                <NotificationBadge count={2} effect={Effect.SCALE} />
               </li>
               <li className={selectedColor.Cart}>
                 <span className="material-symbols-outlined">shopping_cart</span>
+                <NotificationBadge count={2} effect={Effect.SCALE} />
               </li>
               {isEmpty(userinfo) ? (
                 <li onClick={() => setShowLogin(true)}>

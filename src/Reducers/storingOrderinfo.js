@@ -1,5 +1,5 @@
 const orderInfo = {
-  userinfo: "",
+  userinformation: "",
   selectAddress: "",
   orderProduct: "",
   paymentMode: "",
@@ -7,7 +7,7 @@ const orderInfo = {
 export const storingOrderInfo = (state = orderInfo, action) => {
   switch (action.type) {
     case "login":
-      return { ...state, userinfo: action.userinfo };
+      return { ...state, userinformation: action.username };
     case "address":
       return { ...state, selectAddress: action.selectAddress };
     case "orderProduct":
