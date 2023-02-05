@@ -1,6 +1,6 @@
 import Verified from "../../../Images/verified.png";
-export const LoginConfirm = () => {
-  const userinfo = localStorage.getItem("userinfo");
+export const LoginConfirm = (props) => {
+  const { userName } = props;
   return (
     <div id="order_login_confirm_root">
       <div id="order_sub_login_conform">
@@ -8,7 +8,7 @@ export const LoginConfirm = () => {
           <img src={Verified} alt="" />
         </div>
         <p>Verified Successfully</p>
-        <p>{userinfo}</p>
+        <p>{userName}</p>
       </div>
     </div>
   );

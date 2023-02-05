@@ -4,8 +4,8 @@ export const AddressSchema = Yup.object().shape({
     .min(2, "Too Short!")
     .max(50, "Too Long!")
     .required("Required"),
-  mobilenumber: Yup.string().min(10, "Phone number is not valid").max(10, "Phone number is not valid").required("Required"),
-  pincode: Yup.string().min(6, "Pin code is not valid").max(6, "Pin code is not valid").required("Required"),
+  mobileNumber: Yup.string().min(10, "Phone number is not valid").max(10, "Phone number is not valid").required("Required"),
+  pinCode: Yup.string().min(6, "Pin code is not valid").max(6, "Pin code is not valid").required("Required"),
   locality: Yup.string().required("Required"),
   address: Yup.string().required("Required"),
   country: Yup.object().nullable().required("Required"),

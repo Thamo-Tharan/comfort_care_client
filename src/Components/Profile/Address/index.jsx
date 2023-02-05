@@ -123,15 +123,15 @@ export const Address = () => {
               id="mob"
               type="text"
               placeholder="Mobile number"
-              value={values.mobilenumber}
+              value={values.mobileNumber}
               onChange={(value) =>
-                setFieldValue("mobilenumber", value.currentTarget.value)
+                setFieldValue("mobileNumber", value.currentTarget.value)
               }
             />
-            {addressFromik.touched.mobilenumber &&
-              addressFromik.errors.mobilenumber && (
+            {addressFromik.touched.mobileNumber &&
+              addressFromik.errors.mobileNumber && (
                 <span className="text-red-400">
-                  {addressFromik.errors.mobilenumber}
+                  {addressFromik.errors.mobileNumber}
                 </span>
               )}
           </div>
@@ -139,15 +139,15 @@ export const Address = () => {
             <input
               id="pin"
               type="text"
-              placeholder="Pincode"
-              value={values.pincode}
+              placeholder="pinCode"
+              value={values.pinCode}
               onChange={(value) =>
-                setFieldValue("pincode", value.currentTarget.value)
+                setFieldValue("pinCode", value.currentTarget.value)
               }
             />
-            {addressFromik.touched.pincode && addressFromik.errors.pincode && (
+            {addressFromik.touched.pinCode && addressFromik.errors.pinCode && (
               <span className="text-red-400">
-                {addressFromik.errors.pincode}
+                {addressFromik.errors.pinCode}
               </span>
             )}
           </div>
@@ -281,8 +281,8 @@ export const Address = () => {
                 city: "",
                 type: "",
                 name: "",
-                mobilenumber: "",
-                pincode: "",
+                mobileNumber: "",
+                pinCode: "",
                 locality: "",
                 address: "",
                 landmark: "",
@@ -314,14 +314,14 @@ export const Address = () => {
             </div>
             <div id="name_heading">
               <p>{data.name}</p>
-              <p>{data.mobilenumber}</p>
+              <p>{data.mobileNumber}</p>
             </div>
             <div id="add_value">
               <p>{data.address},</p>
               <p>{data.locality},</p>
               <p>{data.city.name},</p>
               <p>{data.state.name}-</p>
-              <p id="pincode">{data.pincode}</p>
+              <p id="pinCode">{data.pinCode}</p>
             </div>
           </div>
         );

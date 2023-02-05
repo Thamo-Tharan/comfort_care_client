@@ -55,3 +55,12 @@ header div {
   margin: 4px 2px;
   padding: 10px 24px;
 }
+#icons_list ol li {
+  display: flex;
+}
+#icons_list ol li div {
+  top: -11px;
+  bottom: 0;
+  left: 10px;
+  right: 0px;
+}

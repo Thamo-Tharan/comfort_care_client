@@ -4,22 +4,25 @@ import "react-step-progress/dist/index.css";
 import "../../Styles/Order/index.css";
 import { OrderAddress } from "./addressSelection";
 import { useSelector } from "react-redux";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { OrderSummary } from "./orderSummary";
 import { HeaderOrder } from "./Header";
 import { isEmpty } from "lodash";
 import { LoginConfirm } from "./loginConfirm";
+import { SignUp } from "../signUp";
 const getSelectors = (state) => state.userOrderInfo;
-let orderObject = { login: "", address: "" };
+let orderObject = { login:localStorage.getItem("userinfo") , address: "" };
 export const Order = () => {
-  const { selectAddress } = useSelector(getSelectors);
-  const userinfo = localStorage.getItem("userinfo");
+  const { selectAddress, userinformation } = useSelector(getSelectors);
+  const [loginShow, setLoginShow] = useState(true);
+  const[login,seLogin]=useState('')
   useEffect(() => {
     selectAddress !== ""
       ? (orderObject.address = selectAddress)
       : (orderObject.address = "");
     console.log(selectAddress);
-  }, [selectAddress]);
+    seLogin(localStorage.getItem("userinfo"))
+  }, [selectAddress,userinformation]);
 
   function step2Validator() {
     console.log(orderObject.address);
@@ -39,14 +42,15 @@ export const Order = () => {
   return (
     <>
       <HeaderOrder />
-      <StepProgressBar
-        startingStep={0}
+      {isEmpty(login) ? <SignUp showPopup={loginShow} setShowPopup={setLoginShow} />:null}
+      {!isEmpty(login) ?  <StepProgressBar
+        startingStep={1}
         onSubmit={onFormSubmit}
         steps={[
           {
             label: "Login",
             name: "step 1",
-            content: !isEmpty(userinfo) ? <LoginConfirm /> : null,
+            content:<LoginConfirm userName={login}/>,
           },
           {
             label: "Delivery Address",
@@ -66,7 +70,8 @@ export const Order = () => {
             validator: step3Validator,
           },
         ]}
-      />
+      /> : <div id="order_signin"><button onClick={()=>setLoginShow(true)}>Sign In</button></div>}
+     
     </>
   );
 };
