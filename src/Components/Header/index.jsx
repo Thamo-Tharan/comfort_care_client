@@ -6,7 +6,7 @@ import { SignUp } from "../signUp";
 export const Header = (props) => {
   const { selectedColor } = props;
   const navigate = useNavigate();
-  const [showLogin,setShowLogin] = useState(false);
+  const [showLogin, setShowLogin] = useState(false);
   const userinfo = localStorage.getItem("userinfo");
   return (
     <>
@@ -21,7 +21,12 @@ export const Header = (props) => {
                 Home
               </li>
               <li className={selectedColor.Menu}>Menu</li>
-              <li className={selectedColor.About}>About</li>
+              <li
+                className={selectedColor.About}
+                onClick={() => navigate("/about")}
+              >
+                About
+              </li>
               <li className={selectedColor.Contact}>Contact</li>
             </ol>
           </div>
