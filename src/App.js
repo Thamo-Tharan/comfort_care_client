@@ -4,6 +4,7 @@ import { Home } from "./Pages/Home";
 import { Profile } from "./Pages/Profile";
 import { OrderPage } from "./Pages/Order";
 import { WishtListPage } from "./Pages/WishtList";
+import { ViewAllPage } from "./Pages/viewAll";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Route exact path="/profile" element={<Profile />} />
           <Route exact path="/order" element={<OrderPage />} />
           <Route exact path="/wishlist" element={<WishtListPage/>} />
+          <Route exact path="/viewall" element={<ViewAllPage/>}/>
         </Routes>
       </BrowserRouter>
     </div>

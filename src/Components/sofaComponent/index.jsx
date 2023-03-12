@@ -4,7 +4,9 @@ import Carousel from "react-multi-carousel";
 import { FaHeart } from "react-icons/fa";
 import "react-multi-carousel/lib/styles.css";
 import Image5 from "../../Images/home_image5.webp";
+import { useNavigate } from "react-router-dom";
 export const SofaComp = () => {
+  const navigate = useNavigate();
   const responsive = {
     superLargeDesktop: {
       // the naming can be any, depends on you.
@@ -30,7 +32,12 @@ export const SofaComp = () => {
         <div id="sofa_text">
           <p>Sofa Collections</p>
         </div>
-        <div id="sofa_button">
+        <div
+          id="sofa_button"
+          onClick={() =>
+            navigate({ pathname: "/viewall", search: "?product=sofa" })
+          }
+        >
           <button className="view_all">View all</button>
         </div>
       </div>
@@ -45,7 +52,7 @@ export const SofaComp = () => {
         <div id="sofa_root">
           <div id="fav_icon_div">
             <div></div>
-            <div>
+            <div id="whistlist_icon_div">
               <FaHeart />
             </div>
           </div>
