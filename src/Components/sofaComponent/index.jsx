@@ -58,7 +58,22 @@ export const SofaComp = () => {
           </div>
           <div>
             <img src={Image5} alt="" />
-            <p>product name</p>
+            <p>Single Cot Bed</p>
+            <p>rating count</p>
+            <strike>30,000/-</strike>
+            <p>28,999/-</p>
+          </div>
+        </div>
+        <div id="sofa_root">
+          <div id="fav_icon_div">
+            <div></div>
+            <div>
+              <FaHeart />
+            </div>
+          </div>
+          <div>
+            <img src={Image1} alt="" />
+            <p>Black Leather Sofa</p>
             <p>rating count</p>
             <strike>1,000</strike>
             <p>500</p>
@@ -73,7 +88,7 @@ export const SofaComp = () => {
           </div>
           <div>
             <img src={Image1} alt="" />
-            <p>product name</p>
+            <p>Black Leather Sofa</p>
             <p>rating count</p>
             <strike>1,000</strike>
             <p>500</p>
@@ -88,7 +103,7 @@ export const SofaComp = () => {
           </div>
           <div>
             <img src={Image1} alt="" />
-            <p>product name</p>
+            <p>Black Leather Sofa</p>
             <p>rating count</p>
             <strike>1,000</strike>
             <p>500</p>
@@ -103,22 +118,7 @@ export const SofaComp = () => {
           </div>
           <div>
             <img src={Image1} alt="" />
-            <p>product name</p>
-            <p>rating count</p>
-            <strike>1,000</strike>
-            <p>500</p>
-          </div>
-        </div>
-        <div id="sofa_root">
-          <div id="fav_icon_div">
-            <div></div>
-            <div>
-              <FaHeart />
-            </div>
-          </div>
-          <div>
-            <img src={Image1} alt="" />
-            <p>product name</p>
+            <p>Black Leather Sofa</p>
             <p>rating count</p>
             <strike>1,000</strike>
             <p>500</p>

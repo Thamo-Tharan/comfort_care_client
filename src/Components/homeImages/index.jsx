@@ -39,10 +39,10 @@ export const HomeImage = () => {
         <div className="home-image-auto">
           <div id="text_head">
             <p id="normal_text_price">Great Design Collection</p>
-            <p className="bold-headed">Cloth Covered Accent Chair</p>
+            <p className="bold-headed">Black Leather Sofa</p>
             <p id="description">Lorem</p>
-            <strike id="normal_text_price">₹ 15,000</strike>
-            <p id="normal_text_price">₹ 12,000</p>
+            <strike id="normal_text_price">₹ 30,000/-</strike>
+            <p id="normal_text_price">₹ 24,999/-</p>
             <button>Buy now</button>
           </div>
           <div id="image_auto_div">
@@ -52,10 +52,10 @@ export const HomeImage = () => {
         <div className="home-image-auto">
           <div id="text_head">
             <p id="normal_text_price">Great Design Collection</p>
-            <p className="bold-headed">Cloth Covered Accent Chair</p>
+            <p className="bold-headed">Trendy Beam Bag</p>
             <p id="description">lorem epsum </p>
-            <strike id="normal_text_price">₹ 15,000</strike>
-            <p id="normal_text_price">₹ 12,000</p>
+            <strike id="normal_text_price">₹ 3000/-</strike>
+            <p id="normal_text_price">₹ 2499/-</p>
             <button>Buy now</button>
           </div>
           <div id="image_auto_div">
@@ -65,10 +65,10 @@ export const HomeImage = () => {
         <div className="home-image-auto">
           <div id="text_head">
             <p id="normal_text_price">Great Design Collection</p>
-            <p className="bold-headed">Cloth Covered Accent Chair</p>
+            <p className="bold-headed">Dressing Table</p>
             <p id="description">abcd</p>
             <strike id="normal_text_price">₹ 15,000</strike>
-            <p id="normal_text_price">₹ 12,000</p>
+            <p id="normal_text_price">₹ 12,999/-</p>
             <button>Buy now</button>
           </div>
           <div id="image_auto_div">
@@ -78,10 +78,10 @@ export const HomeImage = () => {
         <div className="home-image-auto">
           <div id="text_head">
             <p id="normal_text_price">Great Design Collection</p>
-            <p className="bold-headed">Cloth Covered Accent Chair</p>
+            <p className="bold-headed">Rocking Chair</p>
             <p id="description">abcd</p>
-            <strike id="normal_text_price">₹ 15,000</strike>
-            <p id="normal_text_price">₹ 12,000</p>
+            <strike id="normal_text_price">₹ 4000/-</strike>
+            <p id="normal_text_price">₹ 3499/-</p>
             <button>Buy now</button>
           </div>
           <div id="image_auto_div">
@@ -91,10 +91,10 @@ export const HomeImage = () => {
         <div className="home-image-auto">
           <div id="text_head">
             <p id="normal_text_price">Great Design Collection</p>
-            <p className="bold-headed">Cloth Covered Accent Chair</p>
+            <p className="bold-headed">Single Cot & Bed</p>
             <p id="description">abcd</p>
-            <strike id="normal_text_price">₹ 15,000</strike>
-            <p id="normal_text_price">₹ 12,000</p>
+            <strike id="normal_text_price">₹ 30,000</strike>
+            <p id="normal_text_price">₹ 28999/-</p>
             <button>Buy now</button>
           </div>
           <div id="image_auto_div">

@@ -1,0 +1,14 @@
+#about_us_content{
+width: 45%;
+margin: auto;
+font-size: 18px;
+text-align: start;
+}
+#about_us{
+    margin: 20px 0px 0px 0px;
+    font-weight: 600;
+    font-size:32px;
+}
+#about_us_heading{
+    font-size: 18px; 
+}

@@ -160,7 +160,7 @@ export const SignUp = (props) => {
                   : setButtonDisabled(true))
               : (setSignUpError({
                   ...SignUpError,
-                  mobile: "Please enter valid mobileNumber",
+                  mobile: "Please enter valid mobile number",
                 }),
                 setButtonDisabled(true));
           case parentElement[index].id === "password" &&
@@ -277,7 +277,7 @@ export const SignUp = (props) => {
                   <input
                     id="username"
                     type="text"
-                    placeholder="Username"
+                    placeholder="Enter username"
                     onChange={validateFunction}
                   />
                   {SignInError.username !== "" ? (
@@ -288,7 +288,7 @@ export const SignUp = (props) => {
                   <input
                     id="password"
                     type="text"
-                    placeholder="Password"
+                    placeholder="Enter password"
                     onChange={validateFunction}
                   />
                   {SignInError.password !== "" ? (
@@ -302,7 +302,7 @@ export const SignUp = (props) => {
                   <input
                     id="username"
                     type="text"
-                    placeholder="Username"
+                    placeholder="Enter username"
                     onChange={registerFunction}
                   />
                   {SignUpError.username !== "" ? (
@@ -313,7 +313,7 @@ export const SignUp = (props) => {
                   <input
                     id="email"
                     type="text"
-                    placeholder="Email address"
+                    placeholder="Enter email address"
                     onChange={registerFunction}
                   />
                   {SignUpError.email !== "" ? (
@@ -324,7 +324,7 @@ export const SignUp = (props) => {
                   <input
                     id="mobileNumber"
                     type="text"
-                    placeholder="mobileNumber"
+                    placeholder="Enter mobile number"
                     onChange={registerFunction}
                   />
                   {SignUpError.mobile !== "" ? (
@@ -335,7 +335,7 @@ export const SignUp = (props) => {
                   <input
                     id="password"
                     type="text"
-                    placeholder="Password"
+                    placeholder="Enter password"
                     onChange={registerFunction}
                   />
                   {SignUpError.password !== "" ? (
@@ -346,7 +346,7 @@ export const SignUp = (props) => {
                   <input
                     id="repeatPassword"
                     type="text"
-                    placeholder="Confirm password"
+                    placeholder="Confirm  password"
                     onChange={registerFunction}
                   />
                   {SignUpError.repeatPassword !== "" ? (
@@ -361,7 +361,7 @@ export const SignUp = (props) => {
           {mode === "SignIn" ? (
             <>
               <div id="sign_in_span">
-                <p>Don't have account</p>
+                <p>Don't have an account</p>
                 <span
                   onClick={() => {
                     setMode("SignUp");
@@ -384,7 +384,7 @@ export const SignUp = (props) => {
           ) : (
             <>
               <div id="register_span">
-                <p>Already have account</p>
+                <p>Already have  an account?</p>
                 <span
                   onClick={() => {
                     setMode("SignIn");
