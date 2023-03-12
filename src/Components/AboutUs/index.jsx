@@ -23,6 +23,9 @@ export const AboutUs = () => {
           </p>
         </p>
       </div>
+      <div class="footer">
+        <p>For any queries contact: comfortandcare@gmail.com</p>
+      </div>
     </>
   );
 };
