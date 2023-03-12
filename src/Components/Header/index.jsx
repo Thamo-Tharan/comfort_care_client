@@ -29,7 +29,7 @@ export const Header = (props) => {
               >
                 About
               </li>
-              <li className={selectedColor.Contact}>Contact</li>
+              {/* <li className={selectedColor.Contact}>Contact</li> */}
             </ol>
           </div>
           <div id="icons_list">

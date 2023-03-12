@@ -50,7 +50,7 @@ export const ProfileLayout = () => {
   return (
     <div id="profile_layout">
       <div id="profile_layout_parent">
-        <div id="profile_div">TK</div>
+        <div id="profile_div">SP</div>
         <div id="profile_info_div">
           <ol>
             <li className={defaultColor.profile} onClick={layoutChangeFunction}>

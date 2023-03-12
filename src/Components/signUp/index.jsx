@@ -141,7 +141,7 @@ export const SignUp = (props) => {
                   : setButtonDisabled(true))
               : (setSignUpError({
                   ...SignUpError,
-                  email: "Please enter valid email",
+                  email: "Please enter valid email address",
                 }),
                 setButtonDisabled(true));
           case parentElement[index].id === "mobileNumber" &&

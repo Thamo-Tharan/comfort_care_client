@@ -1,8 +1,8 @@
 import Image2 from "../../Images/home_image2.png";
-import "../../Styles/WishtList/index.css"
-export const WishtList = () => {
+import WishList from "../../Styles/WishList/index.css";
+export const WishListItem = () => {
   return (
-    <div id="wishtlist_root">
+    <div id="wishlist_root">
       <div id="sub_root_sum">
         <div id="first_div_sum">
           <div id="sum_image">

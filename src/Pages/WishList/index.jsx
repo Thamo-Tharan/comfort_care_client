@@ -1,7 +1,7 @@
 import { Header } from "../../Components/Header"
-import { WishtList } from "../../Components/WishtList";
+import { WishListItem } from "../../Components/WishList";
 
-export const WishtListPage=()=>{
+export const WishListPage=()=>{
     const selectedColor = {
         Home: "",
         Menu: "",
@@ -14,7 +14,7 @@ export const WishtListPage=()=>{
     return(
         <>
         <Header selectedColor={selectedColor}/>
-        <WishtList/>
+        <WishListItem/>
         </>
     )
 }

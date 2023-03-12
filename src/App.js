@@ -4,7 +4,7 @@ import { Home } from "./Pages/Home";
 import { Profile } from "./Pages/Profile";
 import { OrderPage } from "./Pages/Order";
 import AboutPage from "./Pages/About";
-import { WishtListPage } from "./Pages/WishtList";
+import { WishListPage } from "./Pages/WishList";
 import { ViewAllPage } from "./Pages/viewAll";
 
 function App() {
@@ -16,7 +16,7 @@ function App() {
           <Route exact path="/profile" element={<Profile />} />
           <Route exact path="/order" element={<OrderPage />} />
           <Route exact path="/about" element={<AboutPage/>}/>
-          <Route exact path="/wishlist" element={<WishtListPage/>} />
+          <Route exact path="/wishlist" element={<WishListPage/>} />
           <Route exact path="/viewall" element={<ViewAllPage/>}/>
         </Routes>
       </BrowserRouter>
