@@ -42,3 +42,6 @@
 #fav_icon_div span:hover{
     cursor: pointer;
 }
+#whistlist_icon_div:hover{
+    cursor: pointer;
+}
