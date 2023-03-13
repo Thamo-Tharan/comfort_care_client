@@ -52,7 +52,7 @@ export const SofaComp = () => {
         <div id="sofa_root">
           <div id="fav_icon_div">
             <div></div>
-            <div id="whistlist_icon_div">
+            <div id="wishlist_icon_div">
               <FaHeart />
             </div>
           </div>
