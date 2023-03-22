@@ -8,13 +8,14 @@ export const ProfileLayout = () => {
     address: "",
     order: "",
   });
-  const [render, setRender] = useState(<ProfileInformation/>);
+  const userinformation = JSON.parse(localStorage.getItem("userinfo"));
+  const [render, setRender] = useState(<ProfileInformation />);
   const layoutChangeFunction = (e) => {
     switch (e.currentTarget.firstChild.textContent) {
       case "person":
         return defaultColor.profile === "active"
           ? null
-          : setRender(()=><ProfileInformation />)(
+          : setRender(() => <ProfileInformation />)(
               setDefaultColor({
                 ...defaultColor,
                 profile: "active",
@@ -50,7 +51,9 @@ export const ProfileLayout = () => {
   return (
     <div id="profile_layout">
       <div id="profile_layout_parent">
-        <div id="profile_div">SP</div>
+        <div id="profile_div">
+          {userinformation?.username?.substring(0, 1).toUpperCase()}
+        </div>
         <div id="profile_info_div">
           <ol>
             <li className={defaultColor.profile} onClick={layoutChangeFunction}>

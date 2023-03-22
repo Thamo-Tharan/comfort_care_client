@@ -1,5 +1,5 @@
 import Image2 from "../../Images/home_image2.png";
-import WishList from "../../Styles/WishList/index.css";
+import "../../Styles/WishList/index.css";
 export const WishListItem = () => {
   return (
     <div id="wishlist_root">

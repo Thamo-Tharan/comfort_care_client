@@ -4,6 +4,8 @@ import Modal from "react-bootstrap/Modal";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../../Styles/signup/index.css";
 import { useState } from "react";
+import { useMutation } from "react-query";
+import { toast } from "react-toastify";
 import {
   mobileNumberValidation,
   onValidUsername,
@@ -11,11 +13,17 @@ import {
   passwordValidation,
 } from "../../Validations/signInSignup";
 import { useDispatch } from "react-redux";
+import { Userregister } from "../../Api/registerUser";
+import { Userlogin } from "../../Api/userLogin";
+import { Forgotpasswordapi } from "../../Api/forgotPassword";
+import { Forgotusernameapi } from "../../Api/Forgotusername";
 export const SignUp = (props) => {
   const { showPopup, setShowPopup } = props;
   const handleClose = () => setShowPopup(!showPopup);
   const [mode, setMode] = useState("SignIn");
+  const [forgotdisabled, setforgotdisabled] = useState(true);
   const [buttonDisabled, setButtonDisabled] = useState(true);
+  const [forgoterror, setforgoterror] = useState({ email: "" });
   const [SignInError, setSignInError] = useState({
     username: "",
     password: "",
@@ -97,6 +105,29 @@ export const SignUp = (props) => {
     } else {
       setSignInError({ username: "", password: "" });
       setButtonDisabled(true);
+    }
+  };
+  // validation for forgotpassword and forgot username
+  const fogotvalidation = (e) => {
+    const parentElement =
+      e.currentTarget.parentElement.parentElement.getElementsByTagName("input");
+    console.log(parentElement);
+    if (parentElement.email.value !== "") {
+      const isValidemail = onValidEmail(parentElement.email.value);
+      return isValidemail
+        ? setforgotdisabled(false)(
+            setforgoterror({
+              email: "",
+            })
+          )
+        : setforgoterror({
+            email: "Please enter valid email address",
+          });
+    } else {
+      setforgotdisabled(true);
+      setforgoterror({
+        email: "",
+      });
     }
   };
   //validation for registration
@@ -253,17 +284,81 @@ export const SignUp = (props) => {
       setButtonDisabled(true);
     }
   };
-  const SignInFunction = () => {
-    localStorage.setItem("userinfo", inputValues("username"));
-    dispatch({type:'login',username:inputValues("username")});
-    setShowPopup(!showPopup);
+  const mutation = useMutation({
+    mutationFn: (obj) => {
+      return Userregister(obj);
+    },
+  });
+  const forgotPasswordUsername = async () => {
+    const data = inputValues("email");
+    try {
+      const todo =
+        mode === "forgotpassword"
+          ? await Forgotpasswordapi(data)
+          : await Forgotusernameapi(data);
+      console.log(todo);
+      mode === "forgotpassword"
+        ? toast.success("Link has been send to your register email address")
+        : toast.success(
+            "Username has been send to your register email address"
+          );
+      setShowPopup(!showPopup);
+    } catch (error) {
+      toast.error(error.response.data.message);
+      console.log("error", error.response.data.message);
+    }
+  };
+  const SignInFunction = async () => {
+    const data = {
+      username: inputValues("username"),
+      password: inputValues("password"),
+    };
+    try {
+      const todo = await Userlogin(data);
+      console.log(todo);
+      toast.success("Sucessfull");
+      window.localStorage.setItem(
+        "userinfo",
+        JSON.stringify(todo.data.userinfo)
+      );
+      dispatch({ type: "login", username: inputValues("username") });
+      setShowPopup(!showPopup);
+    } catch (error) {
+      toast.error(error.response.data.message);
+      console.log("error", error.response.data.message);
+    }
+  };
+  const signupFunc = async () => {
+    const data = {
+      username: inputValues("username"),
+      email: inputValues("email"),
+      password: inputValues("password"),
+      mobilenumber: inputValues("mobileNumber"),
+    };
+    try {
+      const todo = await mutation.mutateAsync(data);
+      console.log(todo);
+      toast.success("Your account has been created");
+      window.localStorage.setItem(
+        "userinfo",
+        JSON.stringify(todo.data.userinfo)
+      );
+      setShowPopup(!showPopup);
+    } catch (error) {
+      toast.error(error.response.data.message);
+      console.log("error", error.response.data.message);
+    }
   };
   return (
     <>
       <Modal show={showPopup}>
         <Modal.Header>
           <Modal.Title>
-            {mode === "SignIn" ? "SignIn Form" : "SignUp Form"}
+            {mode === "SignIn" ? "SignIn Form" : null}
+            {mode === "SignUp" ? "SignUp Form" : null}
+            {mode === "forgotpassword" ? "Forgotpassword Form" : null}
+            {mode === "forgotusername" ? "Forgotusername Form" : null}
+            {mode === "help" ? "Need help?" : null}
           </Modal.Title>
           <span className="material-symbols-outlined" onClick={handleClose}>
             close
@@ -298,116 +393,226 @@ export const SignUp = (props) => {
               </div>
             ) : (
               <div className="span-class-register">
-                <div>
-                  <input
-                    id="username"
-                    type="text"
-                    placeholder="Enter username"
-                    onChange={registerFunction}
-                  />
-                  {SignUpError.username !== "" ? (
-                    <p className="error-class">{SignUpError.username}</p>
-                  ) : null}
-                </div>
-                <div>
-                  <input
-                    id="email"
-                    type="text"
-                    placeholder="Enter email address"
-                    onChange={registerFunction}
-                  />
-                  {SignUpError.email !== "" ? (
-                    <p className="error-class">{SignUpError.email}</p>
-                  ) : null}
-                </div>
-                <div>
-                  <input
-                    id="mobileNumber"
-                    type="text"
-                    placeholder="Enter mobile number"
-                    onChange={registerFunction}
-                  />
-                  {SignUpError.mobile !== "" ? (
-                    <p className="error-class">{SignUpError.mobile}</p>
-                  ) : null}
-                </div>
-                <div>
-                  <input
-                    id="password"
-                    type="text"
-                    placeholder="Enter password"
-                    onChange={registerFunction}
-                  />
-                  {SignUpError.password !== "" ? (
-                    <p className="error-class">{SignUpError.password}</p>
-                  ) : null}
-                </div>
-                <div>
-                  <input
-                    id="repeatPassword"
-                    type="text"
-                    placeholder="Confirm  password"
-                    onChange={registerFunction}
-                  />
-                  {SignUpError.repeatPassword !== "" ? (
-                    <p className="error-class">{SignUpError.repeatPassword}</p>
-                  ) : null}
-                </div>
+                {mode === "help" ? (
+                  <>
+                    <div id="help_root">
+                      <div
+                        id="help_back_div"
+                        onClick={() => {
+                          setMode("SignIn");
+                        }}
+                      >
+                        <span className="material-symbols-outlined">
+                          arrow_back_ios_new
+                        </span>
+                      </div>
+                      <div id="root_forgot_names">
+                        <div
+                          id="forgot_username_div"
+                          onClick={() => {
+                            setMode("forgotusername");
+                            setforgoterror({ email: "" });
+                            setButtonDisabled(true);
+                          }}
+                        >
+                          <p>Forgot username</p>
+                          <span className="material-symbols-outlined">
+                            arrow_forward_ios
+                          </span>
+                        </div>
+                        <div
+                          id="forgot_password_div"
+                          onClick={() => {
+                            setMode("forgotpassword");
+                            setforgoterror({ email: "" });
+                            setButtonDisabled(true);
+                          }}
+                        >
+                          <p>Forgot password</p>
+                          <span className="material-symbols-outlined">
+                            arrow_forward_ios
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </>
+                ) : null}
+                {mode === "SignUp" ? (
+                  <div className="span-class-register">
+                    <div>
+                      <input
+                        id="username"
+                        type="text"
+                        placeholder="Enter username"
+                        onChange={registerFunction}
+                      />
+                      {SignUpError.username !== "" ? (
+                        <p className="error-class">{SignUpError.username}</p>
+                      ) : null}
+                    </div>
+                    <div>
+                      <input
+                        id="email"
+                        type="text"
+                        placeholder="Enter email address"
+                        onChange={registerFunction}
+                      />
+                      {SignUpError.email !== "" ? (
+                        <p className="error-class">{SignUpError.email}</p>
+                      ) : null}
+                    </div>
+                    <div>
+                      <input
+                        id="mobileNumber"
+                        type="text"
+                        placeholder="Enter mobile number"
+                        onChange={registerFunction}
+                      />
+                      {SignUpError.mobile !== "" ? (
+                        <p className="error-class">{SignUpError.mobile}</p>
+                      ) : null}
+                    </div>
+                    <div>
+                      <input
+                        id="password"
+                        type="text"
+                        placeholder="Enter password"
+                        onChange={registerFunction}
+                      />
+                      {SignUpError.password !== "" ? (
+                        <p className="error-class">{SignUpError.password}</p>
+                      ) : null}
+                    </div>
+                    <div>
+                      <input
+                        id="repeatPassword"
+                        type="text"
+                        placeholder="Confirm  password"
+                        onChange={registerFunction}
+                      />
+                      {SignUpError.repeatPassword !== "" ? (
+                        <p className="error-class">
+                          {SignUpError.repeatPassword}
+                        </p>
+                      ) : null}
+                    </div>
+                  </div>
+                ) : null}
+                {mode === "forgotpassword" || mode === "forgotusername" ? (
+                  <div id="forgot_pass_root">
+                    <div
+                      id="forgot_pass_back"
+                      onClick={() => {
+                        setMode("help");
+                        setforgoterror({ email: "" });
+                        setButtonDisabled(true);
+                      }}
+                    >
+                      <span className="material-symbols-outlined">
+                        arrow_back_ios_new
+                      </span>
+                    </div>
+                    <div id="forgot_pass_div">
+                      <input
+                        id="email"
+                        type="text"
+                        placeholder="Enter email address"
+                        onChange={(e) => fogotvalidation(e)}
+                      />
+                      {forgoterror.email !== "" ? (
+                        <p className="error-class">{forgoterror.email}</p>
+                      ) : null}
+                    </div>
+                  </div>
+                ) : null}
               </div>
             )}
           </div>
         </Modal.Body>
-        <Modal.Footer>
-          {mode === "SignIn" ? (
-            <>
-              <div id="sign_in_span">
-                <p>Don't have an account</p>
-                <span
-                  onClick={() => {
-                    setMode("SignUp");
-                    setSignInError({ username: "", password: "" });
-                    setButtonDisabled(true);
-                    emptyInputFunction();
-                  }}
+        {mode === "help" ? null : (
+          <Modal.Footer>
+            {mode === "SignIn" ? (
+              <>
+                <div id="bottom_signin_div">
+                  <div id="sign_in_span">
+                    <p>Don't have an account</p>
+                    <span
+                      onClick={() => {
+                        setMode("SignUp");
+                        setSignInError({ username: "", password: "" });
+                        setButtonDisabled(true);
+                        emptyInputFunction();
+                      }}
+                    >
+                      click here
+                    </span>
+                  </div>
+                  <div id="sign_in_span">
+                    <p>Need help?</p>
+                    <span
+                      onClick={() => {
+                        setMode("help");
+                        setSignInError({ username: "", password: "" });
+                        setButtonDisabled(true);
+                        emptyInputFunction();
+                      }}
+                    >
+                      click here
+                    </span>
+                  </div>
+                </div>
+                <Button
+                  variant="primary"
+                  disabled={buttonDisabled}
+                  onClick={SignInFunction}
                 >
-                  click here
-                </span>
-              </div>
-              <Button
-                variant="primary"
-                disabled={buttonDisabled}
-                onClick={SignInFunction}
-              >
-                SignIn
-              </Button>
-            </>
-          ) : (
-            <>
-              <div id="register_span">
-                <p>Already have  an account?</p>
-                <span
-                  onClick={() => {
-                    setMode("SignIn");
-                    setButtonDisabled(true);
-                    setSignUpError({
-                      username: "",
-                      email: "",
-                      mobile: "",
-                      password: "",
-                      repeatPassword: "",
-                    });
-                    emptyInputFunction();
-                  }}
+                  SignIn
+                </Button>
+              </>
+            ) : null}
+            {mode === "SignUp" ? (
+              <>
+                <div id="register_span">
+                  <p>Already have an account?</p>
+                  <span
+                    onClick={() => {
+                      setMode("SignIn");
+                      setButtonDisabled(true);
+                      setSignUpError({
+                        username: "",
+                        email: "",
+                        mobile: "",
+                        password: "",
+                        repeatPassword: "",
+                      });
+                      emptyInputFunction();
+                    }}
+                  >
+                    click here
+                  </span>
+                </div>
+                <Button
+                  variant="primary"
+                  disabled={buttonDisabled}
+                  onClick={signupFunc}
                 >
-                  click here
-                </span>
-              </div>
-              <Button variant="primary" disabled={buttonDisabled}>
-                SignUp
-              </Button>
-            </>
-          )}
-        </Modal.Footer>
+                  SignUp
+                </Button>
+              </>
+            ) : null}
+            {mode === "forgotpassword" || mode === "forgotusername" ? (
+              <>
+                <Button
+                  variant="primary"
+                  disabled={forgotdisabled}
+                  onClick={forgotPasswordUsername}
+                >
+                  Submit
+                </Button>
+              </>
+            ) : null}
+          </Modal.Footer>
+        )}
       </Modal>
     </>
   );

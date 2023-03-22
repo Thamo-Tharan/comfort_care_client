@@ -1,53 +1,119 @@
-.span-class-register,.span-class-sign_in{
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+.span-class-register,
+.span-class-sign_in {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
-.span-class-register input,.span-class-sign_in input{
-    padding: 10px 16px 10px;
-    border-radius: 5px;
-    border: 1px solid lightgrey;
-    width: 100%;
+.span-class-register input,
+.span-class-sign_in input {
+  padding: 10px 16px 10px;
+  border-radius: 5px;
+  border: 1px solid lightgrey;
+  width: 100%;
 }
-.modal-header{
-    background: brown;;
-    color: white;
+.modal-header {
+  background: brown;
+  color: white;
 }
-.modal-header span:hover{
-    cursor: pointer;
+#bottom_signin_div {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-column-gap: 100px;
 }
-.modal-footer{
-    flex-direction: column;
+#root_forgot_names {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 90%;
 }
-#register_span,#sign_in_span{
-    display: flex;
-    gap: 6px;
+#forgot_username_div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 50px;
+  cursor: pointer;
 }
-#register_span span , #sign_in_span span{
-    text-decoration: underline;
-    color: blue;
-    cursor: pointer;
+#forgot_password_div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  cursor: pointer;
+  height: 50px;
+  align-items: center;
 }
-.modal-footer button{
-    background-color: darkorange;
-    border: none;
-    color: white;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-    padding: 10px 24px;
+#help_root {
+  display: flex;
+  flex-direction: unset;
+  align-items: unset;
+  gap: 10px;
+  width: 100%;
+  justify-content: space-between;
 }
-.modal-footer button:hover{
-    background-color: darkorange !important;
+#help_back_div {
+  width: 10%;
 }
-.btn:disabled{
-    background: bisque !important;
-    cursor: no-drop;
+#help_back_div:hover {
+  cursor: pointer;
 }
-.error-class{
-    color: red;
-    margin: 0px;
+#forgot_pass_back:hover {
+  cursor: pointer;
+}
+#forgot_pass_root {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+#forgot_pass_back {
+  width: 10%;
+}
+#forgot_pass_div {
+  width: 90%;
+  padding-top: 20px;
+}
+#forgot_username_div:hover {
+  color: darkorange;
+}
+#forgot_password_div:hover {
+  color: darkorange;
+}
+.modal-header span:hover {
+  cursor: pointer;
+}
+.modal-footer {
+  flex-direction: column;
+}
+#register_span,
+#sign_in_span {
+  display: flex;
+  gap: 6px;
+}
+#register_span span,
+#sign_in_span span {
+  text-decoration: underline;
+  color: blue;
+  cursor: pointer;
+}
+.modal-footer button {
+  background-color: darkorange;
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  padding: 10px 24px;
+}
+.modal-footer button:hover {
+  background-color: darkorange !important;
+}
+.btn:disabled {
+  background: bisque !important;
+  cursor: no-drop;
+}
+.error-class {
+  color: red;
+  margin: 0px;
 }

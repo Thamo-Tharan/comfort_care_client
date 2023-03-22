@@ -9,7 +9,7 @@ export const Header = (props) => {
   const { selectedColor } = props;
   const navigate = useNavigate();
   const [showLogin, setShowLogin] = useState(false);
-  const userinfo = localStorage.getItem("userinfo");
+  const userinfo = JSON.parse(localStorage.getItem("userinfo"));
   return (
     <>
       <div id="header_root">
