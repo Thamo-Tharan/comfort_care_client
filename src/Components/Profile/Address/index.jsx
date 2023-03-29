@@ -3,16 +3,50 @@ import Form from "react-bootstrap/Form";
 import { useFormik } from "formik";
 import Select from "react-select";
 import csc from "country-state-city";
+import axios from "axios";
 import { useEffect, useState } from "react";
 import { AddressSchema } from "../../../Validations/Address";
+import { toast } from "react-toastify";
+import { Updateaddress } from "../../../Api/updateAddress";
 export const Address = () => {
   const [add_address_show, setadd_address_show] = useState(false);
   const [addressdata, setaddressdata] = useState([]);
   const [senddata, setsenddata] = useState([{}]);
   const [edit, setedit] = useState([]);
+  const userinformation = JSON.parse(localStorage.getItem("userinfo"));
+  //getting address
+  const Getaddress = async () => {
+    try {
+      const response = await axios.get(
+        "http://localhost:4000/comfort-and-care/getAddress",
+        {
+          headers: {
+            "Content-Type": "application/json",
+            authorization: `bearer ${userinformation.access_token}`,
+          },
+          withCredentials: true,
+        }
+      );
+      setaddressdata(response.data.address);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  const updateAddress = async (data) => {
+    try {
+      const todo = await Updateaddress(data);
+      console.log(todo);
+      toast.success("Sucessfull");
+    } catch (error) {
+      toast.error(error.response.data.message);
+      console.log("error", error.response.data.message);
+    }
+  };
   const editfun = (data, e) => {
     const keynumber = parseInt(
-      e.currentTarget.parentElement.parentElement.parentElement.getAttribute("data-key")
+      e.currentTarget.parentElement.parentElement.parentElement.getAttribute(
+        "data-key"
+      )
     );
     const arryofkeys = [];
     const datasend = [];
@@ -21,8 +55,8 @@ export const Address = () => {
     setedit(arryofkeys);
     setsenddata(datasend);
   };
-  const removerarry = (array, key) => array.filter((_,index) => index !== key);
-  const removefun = (data, e) => {
+  const removerarry = (array, key) => array.filter((_, index) => index !== key);
+  const removefun = async (data, e) => {
     console.log(data);
     const keynumber = parseInt(
       e.currentTarget.parentElement.parentElement.parentElement.getAttribute(
@@ -35,13 +69,20 @@ export const Address = () => {
     const filterarray = removerarry(datasend, keynumber);
     setedit(filterkeys);
     setaddressdata(filterarray);
+    await updateAddress(filterarray)
   };
+  useEffect(() => {
+    if (userinformation !== null) {
+      Getaddress();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   const Customhookforaddress = (props) => {
     const { inputvalues, keyvalue } = props;
     const addressFromik = useFormik({
       initialValues: inputvalues,
       validationSchema: AddressSchema,
-      onSubmit: (values) => {
+      onSubmit: async (values) => {
         const prev = addressdata;
         if (add_address_show === false) {
           prev[keyvalue] = values;
@@ -52,6 +93,7 @@ export const Address = () => {
           setaddressdata(prev);
           setadd_address_show(!add_address_show);
         }
+        await updateAddress(prev);
         console.log(prev);
       },
     });
