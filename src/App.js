@@ -10,6 +10,7 @@ import AboutPage from "./Pages/About";
 import { WishListPage } from "./Pages/WishList";
 import { ViewAllPage } from "./Pages/viewAll";
 import { Resetpassword } from "./Pages/Resetpassword/Resetpassword";
+import { Uploads } from "./Pages/Uploads";
 function App() {
   const queryClient = new QueryClient();
   return (
@@ -39,6 +40,7 @@ function App() {
               path="/reset-password/:id/:token"
               element={<Resetpassword />}
             />
+            <Route exact path="/uploads" element={<Uploads/>} />
           </Routes>
         </BrowserRouter>
       </div>

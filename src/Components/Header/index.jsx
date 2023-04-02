@@ -5,11 +5,41 @@ import { useNavigate } from "react-router-dom";
 import { SignUp } from "../signUp";
 import NotificationBadge from "react-notification-badge";
 import { Effect } from "react-notification-badge";
+import { useSelector } from "react-redux";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import axios from "axios";
 export const Header = (props) => {
   const { selectedColor } = props;
+  const { whistlistInformation } = useSelector(
+    (state) => state.userWhistlistInfo
+  );
   const navigate = useNavigate();
   const [showLogin, setShowLogin] = useState(false);
   const userinfo = JSON.parse(localStorage.getItem("userinfo"));
+  const dispatch = useDispatch();
+  const Getitems = async () => {
+    try {
+      const response = await axios.get(
+        "http://localhost:4000/comfort-and-care/getwhistlist",
+        {
+          headers: {
+            "Content-Type": "application/json",
+            authorization: `bearer ${userinfo.access_token}`,
+          },
+          withCredentials: true,
+        }
+      );
+      console.log("response.data", response.data);
+      dispatch({ type: "clear", whistlist: response.data.whistlist });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  useEffect(() => {
+    Getitems();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   return (
     <>
       <div id="header_root">
@@ -39,7 +69,10 @@ export const Header = (props) => {
                 onClick={() => navigate("/wishlist")}
               >
                 <span className="material-symbols-outlined">favorite</span>
-                <NotificationBadge count={2} effect={Effect.SCALE} />
+                <NotificationBadge
+                  count={whistlistInformation?.length}
+                  effect={Effect.SCALE}
+                />
               </li>
               <li className={selectedColor.Cart}>
                 <span className="material-symbols-outlined">shopping_cart</span>

@@ -4,12 +4,12 @@ import { FaHeart } from "react-icons/fa";
 import { useEffect, useState } from "react";
 import "react-multi-carousel/lib/styles.css";
 import { useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
 import { useSelector } from "react-redux";
+import { toast } from "react-toastify";
 import { useDispatch } from "react-redux";
-import axios from "axios";
 import { AddRemoveWhistlist } from "../../Api/addRemoveWhistlist";
-export const SofaComp = () => {
+import axios from "axios";
+export const BeambagComp = () => {
   const navigate = useNavigate();
   const [sofa, setsofa] = useState([]);
   const [initial, setInitial] = useState([]);
@@ -20,7 +20,7 @@ export const SofaComp = () => {
   const Getsofa = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:4000/comfort-and-care/getsofa",
+        "http://localhost:4000/comfort-and-care/getbeambag",
         {
           headers: {
             "Content-Type": "application/json",
@@ -120,12 +120,12 @@ export const SofaComp = () => {
     <div id="sofa_items">
       <div id="sofa_com_root">
         <div id="sofa_text">
-          <p>Sofa Collections</p>
+          <p>Beam Bag Collections</p>
         </div>
         <div
           id="sofa_button"
           onClick={() =>
-            navigate({ pathname: "/viewall", search: "?product=sofa" })
+            navigate({ pathname: "/viewall", search: "?product=beambag" })
           }
         >
           <button className="view_all">View all</button>
