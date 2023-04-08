@@ -14,6 +14,7 @@ export const Header = (props) => {
   const { whistlistInformation } = useSelector(
     (state) => state.userWhistlistInfo
   );
+  const { cartInformation } = useSelector((state) => state.userCartInfo);
   const navigate = useNavigate();
   const [showLogin, setShowLogin] = useState(false);
   const userinfo = JSON.parse(localStorage.getItem("userinfo"));
@@ -36,8 +37,27 @@ export const Header = (props) => {
       console.log(error);
     }
   };
+  const Getsavelater = async () => {
+    try {
+      const response = await axios.get(
+        "http://localhost:4000/comfort-and-care/getsavelater",
+        {
+          headers: {
+            "Content-Type": "application/json",
+            authorization: `bearer ${userinfo.access_token}`,
+          },
+          withCredentials: true,
+        }
+      );
+      console.log("response.data", response.data);
+      dispatch({ type: "savelater clear", savelater: response.data.savelater });
+    } catch (error) {
+      console.log(error);
+    }
+  };
   useEffect(() => {
     Getitems();
+    Getsavelater();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
@@ -74,9 +94,15 @@ export const Header = (props) => {
                   effect={Effect.SCALE}
                 />
               </li>
-              <li className={selectedColor.Cart}>
+              <li
+                className={selectedColor.Cart}
+                onClick={() => navigate("/viewCart")}
+              >
                 <span className="material-symbols-outlined">shopping_cart</span>
-                <NotificationBadge count={2} effect={Effect.SCALE} />
+                <NotificationBadge
+                  count={cartInformation?.length}
+                  effect={Effect.SCALE}
+                />
               </li>
               {isEmpty(userinfo) ? (
                 <li onClick={() => setShowLogin(true)}>

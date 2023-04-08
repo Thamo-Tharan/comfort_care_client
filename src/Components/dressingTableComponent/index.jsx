@@ -29,6 +29,7 @@ export const DressingComp = () => {
         }
       );
       setsofa(response.data.sofa);
+      dispatch({ type: "product", product: response.data.sofa });
     } catch (error) {
       console.log(error);
     }
@@ -116,6 +117,13 @@ export const DressingComp = () => {
       />
     );
   };
+  const navigatetonext = (data) => {
+    console.log(data);
+    navigate({
+      pathname: "/viewProduct",
+      search: `?itemName=${data._id}&item=sofa`,
+    });
+  };
   return (
     <div id="sofa_items">
       <div id="sofa_com_root">
@@ -156,7 +164,7 @@ export const DressingComp = () => {
                     )}
                   </div>
                 </div>
-                <div>
+                <div onClick={() => navigatetonext(data)}>
                   <img src={data.path} alt="preview" />
                   <p>{data.name}</p>
                   <p>{data.rating}</p>

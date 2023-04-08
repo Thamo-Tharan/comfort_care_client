@@ -30,3 +30,6 @@ textarea {
 button {
   border-radius: 0.25rem !important;
 }
+.empty-div img{
+  width: 20%;
+}

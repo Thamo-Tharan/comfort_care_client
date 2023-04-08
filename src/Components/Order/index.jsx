@@ -16,12 +16,13 @@ export const Order = () => {
   const { selectAddress, userinformation } = useSelector(getSelectors);
   const [loginShow, setLoginShow] = useState(true);
   const[login,seLogin]=useState('')
+  const userinformationin = JSON.parse(localStorage.getItem("userinfo"));
   useEffect(() => {
     selectAddress !== ""
       ? (orderObject.address = selectAddress)
       : (orderObject.address = "");
     console.log(selectAddress);
-    seLogin(localStorage.getItem("userinfo"))
+    seLogin(userinformationin.username)
   }, [selectAddress,userinformation]);
 
   function step2Validator() {

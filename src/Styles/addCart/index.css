@@ -1,0 +1,29 @@
+#sum_button {
+  cursor: pointer;
+}
+#place_order button {
+  background: #fb641b;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+  border: none;
+  color: #fff;
+  padding: 10px 24px;
+  width: auto;
+}
+#save_latr div:first-child {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 15px;
+  padding-bottom: 25px;
+}
+#save_latr div:first-child p {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0;
+}
+#sub_root_sum {
+  border-left: 1px solid gray;
+}
+#place_order {
+  padding-top: 55px;
+}

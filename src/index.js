@@ -8,9 +8,15 @@ import { Provider } from "react-redux";
 import { combineReducers } from "redux";
 import { storingOrderInfo } from "./Reducers/storingOrderinfo";
 import { storingWhistlistInfo } from "./Reducers/storingWishlist";
+import { storingProductInformationInfo } from "./Reducers/storingAllProduct";
+import { storingCartInfo } from "./Reducers/storingCartinfo";
+import { storingSaveLaterInfo } from "./Reducers/storingSavelater";
 const combineReducer = combineReducers({
   userOrderInfo: storingOrderInfo,
   userWhistlistInfo: storingWhistlistInfo,
+  allProductInfo: storingProductInformationInfo,
+  userCartInfo: storingCartInfo,
+  userSaveLaterInfo: storingSaveLaterInfo,
 });
 const store = createStore(combineReducer);
 const root = ReactDOM.createRoot(document.getElementById("root"));

@@ -4,6 +4,7 @@ import { useFormik } from "formik";
 import Select from "react-select";
 import csc from "country-state-city";
 import { useEffect, useState } from "react";
+import axios from "axios";
 import { AddressSchema } from "../../../Validations/Address";
 import { useDispatch } from "react-redux";
 export const OrderAddress = (props) => {
@@ -12,6 +13,31 @@ export const OrderAddress = (props) => {
   const [addressData, setAddressData] = useState([]);
   const [sendData, setSendData] = useState([{}]);
   const dispatch = useDispatch();
+  const userinformation = JSON.parse(localStorage.getItem("userinfo"));
+  //getting address
+  const Getaddress = async () => {
+    try {
+      const response = await axios.get(
+        "http://localhost:4000/comfort-and-care/getAddress",
+        {
+          headers: {
+            "Content-Type": "application/json",
+            authorization: `bearer ${userinformation.access_token}`,
+          },
+          withCredentials: true,
+        }
+      );
+      setAddressData(response.data.address);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  useEffect(() => {
+    if (userinformation !== null) {
+      Getaddress();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   const selectedAddress = (data, e) => {
     const element = document.getElementsByClassName("select-address");
     for (let i = 0; i < element.length; i++) {

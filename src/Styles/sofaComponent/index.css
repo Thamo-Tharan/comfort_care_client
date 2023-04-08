@@ -47,3 +47,6 @@
 #wishlist_icon_div:hover {
   cursor: pointer;
 }
+#sofa_root div:last-child:hover {
+  cursor: pointer;
+}
