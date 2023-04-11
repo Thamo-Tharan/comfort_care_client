@@ -64,3 +64,6 @@ header div {
   left: 10px;
   right: 0px;
 }
+#company_name_div:hover {
+  cursor: pointer;
+}

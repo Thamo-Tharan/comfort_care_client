@@ -7,6 +7,8 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { AddressSchema } from "../../../Validations/Address";
 import { useDispatch } from "react-redux";
+import { toast } from "react-toastify";
+import { Updateaddress } from "../../../Api/updateAddress";
 export const OrderAddress = (props) => {
   const { selectAddress } = props;
   const [addAddressShow, setAddAddressShow] = useState(false);
@@ -32,6 +34,16 @@ export const OrderAddress = (props) => {
       console.log(error);
     }
   };
+  const updateAddress = async (data) => {
+    try {
+      const todo = await Updateaddress(data);
+      console.log(todo);
+      toast.success("Sucessfull");
+    } catch (error) {
+      toast.error(error.response.data.message);
+      console.log("error", error.response.data.message);
+    }
+  };
   useEffect(() => {
     if (userinformation !== null) {
       Getaddress();
@@ -51,7 +63,7 @@ export const OrderAddress = (props) => {
     const addressForm = useFormik({
       initialValues: inputValues,
       validationSchema: AddressSchema,
-      onSubmit: (values) => {
+      onSubmit: async (values) => {
         const prev = addressData;
         if (addAddressShow === false) {
           prev[keyValue] = values;
@@ -61,6 +73,7 @@ export const OrderAddress = (props) => {
           setAddressData(prev);
           setAddAddressShow(!addAddressShow);
         }
+        await updateAddress(prev);
         console.log(prev);
       },
     });

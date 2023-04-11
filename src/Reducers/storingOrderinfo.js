@@ -1,7 +1,7 @@
 const orderInfo = {
   userinformation: "",
-  selectAddress: "",
-  orderProduct: "",
+  selectAddress: [],
+  orderProduct: [],
   paymentMode: "",
 };
 export const storingOrderInfo = (state = orderInfo, action) => {

@@ -121,7 +121,7 @@ export const DressingComp = () => {
     console.log(data);
     navigate({
       pathname: "/viewProduct",
-      search: `?itemName=${data._id}&item=sofa`,
+      search: `?itemName=${data._id}&item=dressingtable`,
     });
   };
   return (
@@ -133,7 +133,7 @@ export const DressingComp = () => {
         <div
           id="sofa_button"
           onClick={() =>
-            navigate({ pathname: "/viewall", search: "?product=chair" })
+            navigate({ pathname: "/viewall", search: "?product=dressingtable" })
           }
         >
           <button className="view_all">View all</button>

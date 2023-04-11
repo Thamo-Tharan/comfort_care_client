@@ -1,6 +1,5 @@
 import { useState } from "react";
 import "../../Styles/Header/index.css";
-import { isEmpty } from "lodash";
 import { useNavigate } from "react-router-dom";
 import { SignUp } from "../signUp";
 import NotificationBadge from "react-notification-badge";
@@ -55,9 +54,28 @@ export const Header = (props) => {
       console.log(error);
     }
   };
+  const Getcart = async () => {
+    try {
+      const response = await axios.get(
+        "http://localhost:4000/comfort-and-care/getcart",
+        {
+          headers: {
+            "Content-Type": "application/json",
+            authorization: `bearer ${userinfo.access_token}`,
+          },
+          withCredentials: true,
+        }
+      );
+      console.log("response.data", response.data);
+      dispatch({ type: "cart clear", cart: response.data.cart });
+    } catch (error) {
+      console.log(error);
+    }
+  };
   useEffect(() => {
     Getitems();
     Getsavelater();
+    Getcart();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
@@ -104,17 +122,30 @@ export const Header = (props) => {
                   effect={Effect.SCALE}
                 />
               </li>
-              {isEmpty(userinfo) ? (
+              {userinfo === "{}" ? (
                 <li onClick={() => setShowLogin(true)}>
                   <button id="sign_in_home">Sign in</button>
                 </li>
               ) : (
-                <li
-                  onClick={() => navigate("/profile")}
-                  className={selectedColor.profile}
-                >
-                  <span className="material-symbols-outlined">person</span>
-                </li>
+                <>
+                  <li
+                    onClick={() => navigate("/profile")}
+                    className={selectedColor.profile}
+                  >
+                    <span className="material-symbols-outlined">person</span>
+                  </li>
+                  {userinfo.username === "Thamotharan" ||
+                  userinfo.username === "Sai" ? (
+                    <li
+                      onClick={() => navigate("/uploads")}
+                      className={selectedColor.profile}
+                    >
+                      <span className="material-symbols-outlined">
+                        playlist_add_check_circle
+                      </span>
+                    </li>
+                  ) : null}
+                </>
               )}
             </ol>
           </div>

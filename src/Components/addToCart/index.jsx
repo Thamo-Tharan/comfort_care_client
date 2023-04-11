@@ -1,5 +1,6 @@
 import "../../Styles/addCart/index.css";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
@@ -14,6 +15,7 @@ export const Addtocarttem = () => {
   );
   const userinformation = JSON.parse(localStorage.getItem("userinfo"));
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const Getitems = async () => {
     try {
       const response = await axios.get(
@@ -113,6 +115,12 @@ export const Addtocarttem = () => {
       toast.error(error);
     }
   };
+  const placeOrder=()=>{
+    navigate({
+      pathname: "/order",
+      search: `?itemName=''&item=''&type=cart`,
+    })
+  }
   return (
     <>
       <div id="save_latr">
@@ -158,7 +166,7 @@ export const Addtocarttem = () => {
       )}
       {cartInformation.length !== 0 ? (
         <div id="place_order">
-          <button>Place Order</button>
+          <button onClick={()=> placeOrder()}>Place Order</button>
         </div>
       ) : null}
 

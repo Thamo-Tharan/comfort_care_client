@@ -87,7 +87,7 @@ export function ChairUpload() {
           setvalues({ ...values, rating: e.currentTarget.value });
         }}
       />
-      <button onClick={onsubmit}>submit</button>
+      <button onClick={onsubmit}>submit</button><br/>
       {image && <img src={image} alt="preview" />}
     </div>
   );

@@ -121,7 +121,7 @@ export const BedComp = () => {
     console.log(data);
     navigate({
       pathname: "/viewProduct",
-      search: `?itemName=${data._id}&item=sofa`,
+      search: `?itemName=${data._id}&item=bed`,
     });
   };
   return (
@@ -133,7 +133,7 @@ export const BedComp = () => {
         <div
           id="sofa_button"
           onClick={() =>
-            navigate({ pathname: "/viewall", search: "?product=chair" })
+            navigate({ pathname: "/viewall", search: "?product=bed" })
           }
         >
           <button className="view_all">View all</button>

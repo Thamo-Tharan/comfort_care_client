@@ -270,3 +270,24 @@
   display: flex;
   gap: 25px;
 }
+#myorder_root {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+#sub_root_myorder {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  box-shadow: rgb(0 0 0 / 24%) 0px 3px 8px;
+}
+#order_images {
+  display: flex;
+  align-items: center;
+}
+#order_images img {
+  width: 35%;
+  aspect-ratio: 3/2;
+  object-fit: contain;
+}
